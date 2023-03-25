@@ -1,0 +1,769 @@
+﻿<Window x:Class="Qualitea.Admin" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Width="1080" Height="720" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Qualitea" mc:Ignorable="d" Title="MainWindow"  WindowStyle="None" Visibility="Visible" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{x:Null}" AllowsTransparency="True" WindowState="Maximized">
+    
+    <Window.Resources>
+        <Style x:Key="GridViewColumnHeaderStyle1" TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
+                        <Border BorderThickness="1,0,1,0"  Background="#FFBAD373">
+                            <TextBlock x:Name="ContentHeader" Text="{TemplateBinding Content}" Padding="10 12" Width="{TemplateBinding Width}" TextAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Foreground" Value="#FF434948" />
+            <Setter Property="TextElement.FontFamily" Value="/Qualitea;component/fonts/#Montserrat Medium" />
+            <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+
+        <Style x:Key="menuItem" TargetType="Border">
+            <Setter Property="Padding" Value="10 0" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="CornerRadius" Value="20" />
+            <Setter Property="Cursor" Value="Hand" />
+            <EventSetter Event="MouseLeftButtonDown" Handler="menuitem_click" />
+        </Style>
+
+        <Style x:Key="unselectedBtn" BasedOn="{StaticResource menuItem}" TargetType="Border">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Opacity" Value="0.5" />
+            <EventSetter Event="MouseEnter" Handler="menuitem_mouseEnter" />
+        </Style>
+
+        <Style x:Key="selectedBtn" BasedOn="{StaticResource menuItem}" TargetType="Border">
+            <Setter Property="Background" Value="#55ffffff" />
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+        <Style x:Key="hoverBtn" BasedOn="{StaticResource menuItem}" TargetType="Border">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="#FFF" />
+            <Setter Property="Opacity" Value="0.8" />
+            <EventSetter Event="MouseLeave" Handler="menuitem_mouseLeave" />
+        </Style>
+
+
+
+    </Window.Resources>
+    <Border Background="#ffffff">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="5*" />
+            </Grid.ColumnDefinitions>
+            <Border Padding="0 20"  Grid.RowSpan="90">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FF88B330" Offset="0" />
+                        <GradientStop Color="#FF53825E" Offset=" 1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid x:Name="menu">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Padding="20">
+                        <Image Source="asset/logo/whiteline2.png" />
+                    </Border>
+                    <Border x:Name="stat" Style="{StaticResource selectedBtn}" Grid.Row="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Border Padding="10 0">
+                                <Image Source="asset/icons/chart-histogram.png" />
+                            </Border>
+                            <Border Grid.Column="1" Padding="10 0 0 0">
+                                <TextBlock Text="Thống kê" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource regularFont}" />
+                            </Border>
+                        </Grid>
+                    </Border>
+
+                    <Border Style="{StaticResource unselectedBtn}" Grid.Row="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Border Padding="10 0">
+                                <Image Source="asset/icons/tags.png" />
+                            </Border>
+                            <Border Grid.Column="1" Padding="10 0 0 0">
+                                <TextBlock Text="Danh mục" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource regularFont}" />
+                            </Border>
+                        </Grid>
+                    </Border>
+
+                    <Border Style="{StaticResource unselectedBtn}" Grid.Row="3">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Border Padding="10 0">
+                                <Image Source="asset/icons/product.png" />
+                            </Border>
+                            <Border Grid.Column="1" Padding="10 0 0 0">
+                                <TextBlock Text="Sản phẩm" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource regularFont}" />
+                            </Border>
+                        </Grid>
+                    </Border>
+
+                    <Border Style="{StaticResource unselectedBtn}" Grid.Row="4">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Border Padding="10 0">
+                                <Image Source="asset/icons/badge-percent.png" />
+                            </Border>
+                            <Border Grid.Column="1" Padding="10 0 0 0">
+                                <TextBlock Text="Voucher" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource regularFont}" />
+                            </Border>
+                        </Grid>
+                    </Border>
+
+                    <Border Style="{StaticResource unselectedBtn}" Grid.Row="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Border Padding="10 0">
+                                <Image Source="asset/icons/users.png" />
+                            </Border>
+                            <Border Grid.Column="1" Padding="10 0 0 0">
+                                <TextBlock Text="Nhân viên" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource regularFont}" />
+                            </Border>
+                        </Grid>
+                    </Border>
+                    <Canvas>
+                        <Polygon Points="90,400 30,500 160,450" Fill="#33BAD373" Canvas.Left="146" RenderTransformOrigin="0.5,0.5" Canvas.Top="193" Height="510" Width="197">
+                            <Polygon.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform />
+                                    <SkewTransform />
+                                    <RotateTransform Angle="39.95" />
+                                    <TranslateTransform />
+                                </TransformGroup>
+                            </Polygon.RenderTransform>
+                        </Polygon>
+                        <Ellipse Width="90" Height="90" Fill="#33BAD373" Canvas.Left="-35" Canvas.Top="635" />
+                        <Ellipse Width="110" Height="110" Fill="#33BAD373" Canvas.Left="-81" Canvas.Top="234" />
+                        <Ellipse Width="20" Height="20" Fill="#33BAD373" Canvas.Left="140" Canvas.Top="429" />
+                        <Ellipse Width="30" Height="30" Fill="#33BAD373" Canvas.Left="-1" Canvas.Top="512" />
+                        <Ellipse Width="30" Height="30" Fill="#33BAD373" Canvas.Left="140" />
+                        <Ellipse Width="20" Height="20" Fill="#33BAD373" Canvas.Left="150" Canvas.Top="146" />
+                    </Canvas>
+                </Grid>
+            </Border>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Border Background="#FFF">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="10" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Padding="15" Grid.Column="1" BorderBrush="#FFF" BorderThickness="2">
+                            <Button BorderBrush="{x:Null}" Click="minimize" Style="{StaticResource minimizeBtn}">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="asset/icons/minimize.png" Stretch="Uniform" />
+                                </Button.Background>
+                            </Button>
+                        </Border>
+                        <Border Padding="15" Grid.Column="2">
+                            <Button BorderBrush="{x:Null}" Click="close" Style="{StaticResource closeBtn}">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="asset/icons/close.png" Stretch="Uniform" />
+                                </Button.Background>
+                            </Button>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Grid Grid.Row="1" x:Name="main">
+                    <Border x:Name="Tab1" Background="Aqua" Panel.ZIndex="0">
+
+                    </Border >
+                    <Border x:Name="Tab2" Background="#FFF" Panel.ZIndex="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60" />
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="70" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="400" />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Loại sản phẩm" Grid.ColumnSpan="3" Style="{StaticResource Title}" />
+                            <Border Grid.Column="0" Grid.Row="1" Style="{StaticResource containTextBox}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox Style="{StaticResource myTextBox}" Margin="10 0 0 0" Width="305" x:Name="filterName" KeyDown="filterName_KeyDown" />
+                                    <Image Source="asset/icons/search.png" Margin="10" />
+                                </StackPanel>
+                            </Border>
+                            <Button Grid.Column="1" Grid.Row="1" Style="{DynamicResource GreenButton}" Content="Tìm kiếm" Click="search" />
+                            <Button Grid.Column="2" Grid.Row="1" Style="{DynamicResource YellowButton}" Content="Thêm" Click="addNewCategory" />
+                            <Button Grid.Column="3" Grid.Row="1" Style="{DynamicResource RedButton}" Content="Xóa" Click="delCates" />
+
+                            <!--<Border Grid.ColumnSpan="4" Grid.Row="2" Margin="50 10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="600" />
+                                        <ColumnDefinition Width="100" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Padding="20 0" Grid.Column="0" Text="ID" VerticalAlignment="Bottom" Style="{StaticResource myFont}" />
+                                    <TextBlock Padding="20 0" Grid.Column="1" Text="Tên loại sản phẩm" VerticalAlignment="Bottom" Style="{StaticResource myFont}" />
+                                </Grid>
+                            </Border>-->
+                            <!--<ListView Grid.ColumnSpan="4" Grid.Row="3" x:Name="categoryList" x:FieldModifier="public" HorizontalAlignment="Left" Margin="50 0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" Width="800" Height="400">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Category ID" DisplayMemberBinding="{Binding CategoryID}" />
+                                        <GridViewColumn Header="Category Name" DisplayMemberBinding="{Binding Name}" />
+                                    </GridView>
+                                </ListView.View>
+                                <ListView.Resources>
+                                    <ControlTemplate x:Key="SelectedTemplate" TargetType="ListViewItem">
+                                        <Border Background="#FFE7D87B" Padding="20 10" CornerRadius="20" Margin="5 10">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="100" />
+                                                    <ColumnDefinition Width="595" />
+                                                    <ColumnDefinition Width="50" />
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Column="0" Text="{Binding Path=CategoryID}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                <TextBlock Padding="20 0" Grid.Column="1" Text="{Binding Path=Name}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                <Border Grid.Column="2" BorderBrush="{x:Null}" Background="#FF53825E" Padding="10" CornerRadius="10" Cursor="Hand" Margin="8" MouseLeftButtonUp="editCate">
+                                                    <Image Source="asset/icons/edit.png" Stretch="Uniform" />
+                                                </Border>
+                                            </Grid>
+                                        </Border>
+
+                                    </ControlTemplate>
+                                    <Style TargetType="ListViewItem">
+                                        <Style.Triggers>
+                                            <MultiTrigger>
+                                                <MultiTrigger.Conditions>
+                                                    <Condition Property="IsSelected" Value="true" />
+                                                    <Condition Property="Selector.IsSelectionActive" Value="true" />
+                                                </MultiTrigger.Conditions>
+                                                <Setter Property="Background" Value="Transparent" />
+                                                <Setter Property="Template" Value="{StaticResource SelectedTemplate}" />
+                                            </MultiTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ListView.Resources>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Background="#FFEBF4DE" Padding="20 10" CornerRadius="20" Margin="0 10" Name="test">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="100" />
+                                                    <ColumnDefinition Width="595" />
+                                                    <ColumnDefinition Width="50" />
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Column="0" Text="{Binding Path=CategoryID}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                <TextBlock Padding="20 0" Grid.Column="1" Text="{Binding Path=Name}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                <Border Grid.Column="2" BorderBrush="{x:Null}" Background="#FF53825E" Padding="10" CornerRadius="10" Cursor="Hand" Margin="8" MouseLeftButtonUp="editCate">
+                                                    <Image Source="asset/icons/edit.png" Stretch="Uniform" />
+                                                </Border>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>-->
+                            <ListView x:Name="categoryList" Grid.ColumnSpan="4" Grid.Row="3" x:FieldModifier="public" HorizontalAlignment="Left" Margin="50 0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" ItemsPanel="{DynamicResource ItemsPanelTemplate1}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Category ID">
+                                            <GridViewColumn.HeaderTemplate>
+                                                <DataTemplate>
+                                                        <TextBlock Padding="20 0" Grid.Column="0" Text="ID" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource myFont}" />
+                                                </DataTemplate>
+                                            </GridViewColumn.HeaderTemplate>
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=CategoryID}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Category Name">
+                                            <GridViewColumn.HeaderTemplate>
+                                                <DataTemplate>
+                                                        <TextBlock Padding="20 0" Grid.Column="1" Text="Tên loại sản phẩm" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource myFont}" />
+                                                </DataTemplate>
+                                            </GridViewColumn.HeaderTemplate>
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=Name}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Edit">
+                                            <GridViewColumn.HeaderTemplate>
+                                                <DataTemplate>
+                                                        <TextBlock Padding="20 0" Grid.Column="1" Text="Sửa" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource myFont}" />
+                                                </DataTemplate>
+                                            </GridViewColumn.HeaderTemplate>
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border Width="50">
+                                                        <Border Grid.Column="2" Width="30" Height="30" BorderBrush="{x:Null}" Background="#FF53825E" CornerRadius="10" Padding="10" Cursor="Hand" Margin="8" MouseLeftButtonUp="editCate">
+                                                            <Image Source="asset/icons/edit.png" Stretch="Uniform" />
+                                                        </Border>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Grid>
+                    </Border>
+                    <Border x:Name="Tab3" Background="White" Panel.ZIndex="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60" />
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="80"/>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="400" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Sản phẩm" Grid.ColumnSpan="3" Style="{StaticResource Title}" />
+                            <ComboBox x:Name="comboBoxCategory" Style="{StaticResource ComboBoxStyle1}" SelectedValuePath="CategoryID" DisplayMemberPath="Name" Grid.Column="0" Grid.Row="1" Margin="15" FontFamily="/Qualitea;component/fonts/#Montserrat Medium" Height="50" VerticalAlignment="Center" Padding="15 15 0 0" SelectionChanged="comboBoxCategory_SelectionChanged" />
+
+                            <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource containTextBox}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox Style="{StaticResource myTextBox}" Margin="10 0 0 0" Width="305" x:Name="searchBoxProduct" KeyDown="filterName_KeyDown" TextChanged="searchBoxProduct_TextChanged" />
+                                    <Image Source="asset/icons/search.png" Margin="10" />
+                                </StackPanel>
+                            </Border>
+                            <Button x:Name="addProduct" Grid.Column="2" Grid.Row="1" Style="{DynamicResource GreenButton}" Content="Thêm" Margin="20.4,15,20,15" Click="addProduct_Click" />
+                            <Border Grid.ColumnSpan="4" Grid.Row="2">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Height="50">
+                                    <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource containTextBox}" Margin="20 0 0 0" Width="380">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Giá:" Style="{StaticResource darkFont}" VerticalAlignment="Center" Margin="10 0 0 0" />
+                                            <TextBox x:Name="minPrice" Style="{StaticResource myTextBox}" BorderThickness="0 0 0 1" BorderBrush="#FF434948" Width="120" Margin="5 0" TextChanged="minPrice_TextChanged" />
+                                            <TextBlock Text="đ - " Style="{StaticResource darkFont}" VerticalAlignment="Center" />
+                                            <TextBox x:Name="maxPrice" Style="{StaticResource myTextBox}" BorderThickness="0 0 0 1" BorderBrush="#FF434948" Width="120" Margin="5 0" TextChanged="maxPrice_TextChanged" />
+                                            <TextBlock Text="đ" Style="{StaticResource darkFont}" VerticalAlignment="Center" />
+                                        </StackPanel>
+                                    </Border>
+                                    <RadioButton VerticalAlignment="Center" Content="Tất cả" Margin="20 0" Style="{DynamicResource myRadioButton}" IsChecked="True" Checked="RadioButton_Checked" x:Name="rdoAllPrd" />
+                                    <RadioButton VerticalAlignment="Center" Content="Còn hoạt động" Margin="20 0" Style="{DynamicResource myRadioButton}" Checked="RadioButton_Checked" x:Name="rdoActivePrd"/>
+                                    <RadioButton VerticalAlignment="Center" Content="Ngưng hoạt động" Margin="20 0" Style="{DynamicResource myRadioButton}" Checked="RadioButton_Checked" x:Name="rdoInactivePrd"/>
+                                    
+                                </StackPanel>
+                            </Border>
+                            <ScrollViewer Grid.Row="3" Grid.ColumnSpan="4" Margin="20">
+                                <StackPanel>
+                                    <ItemsControl x:Name="listProduct" x:FieldModifier="public" Padding="0 0 0 50">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border CornerRadius="20 20 10 10" Padding="10" Width="200" Margin="10 100 0 -20" Background="#FFE9EADC">
+                                                    <StackPanel>
+                                                        <Border>
+                                                            <Image Source="{Binding Path=Image}" Height="150" Margin="0 -80 0 5">
+                                                                <Image.Effect>
+                                                                    <DropShadowEffect Direction="245" Color="#00DADADA" ShadowDepth="5" BlurRadius="20" />
+                                                                </Image.Effect>
+                                                            </Image>
+                                                        </Border>
+                                                        <TextBlock Text="{Binding Path=Name}" Margin="0 10 0 2" Style="{StaticResource darkFont}" Typography.Capitals="AllSmallCaps" FontSize="20" />
+                                                        <TextBlock Text="{Binding Path=ProductID, StringFormat=Mã sản phẩm: {0}}" Style="{StaticResource darkFont}" FontSize="14" />
+                                                        <TextBlock Text="{Binding Path=MinPrice, StringFormat={}{0:N0} đ}" Style="{StaticResource darkFont}" FontSize="14" />
+                                                        
+                                                        <Border BorderBrush="{x:Null}" Background="#FFBAD373" Padding="6" CornerRadius="10" Cursor="Hand" Width="30" Height="30" HorizontalAlignment="Right" MouseLeftButtonDown="editPrd">
+                                                            <Image Source="asset/icons/edit.png" Stretch="Uniform" />
+                                                        </Border>
+                                                    </StackPanel>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </ScrollViewer>
+
+                        </Grid>
+                    </Border>
+                    <Border x:Name="Tab4" Background="White" Panel.ZIndex="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60" />
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="80" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="400" />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Voucher" Grid.ColumnSpan="3" Style="{StaticResource Title}" />
+                            <Border Grid.Column="2" Grid.Row="1" Style="{StaticResource containTextBox}" Margin="20 10" Height="50">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="% Giảm:" Style="{StaticResource darkFont}" VerticalAlignment="Center" Margin="10 0 0 0" />
+                                    <TextBox Grid.Column="1" x:Name="minPer" Style="{StaticResource myTextBox}" BorderThickness="0 0 0 1" BorderBrush="#FF434948" Width="70" Margin="5 0" TextChanged="txtVoucher_TextChanged" />
+                                    <TextBlock Grid.Column="2" Text="% - " Style="{StaticResource darkFont}" VerticalAlignment="Center" />
+                                    <TextBox Grid.Column="3" x:Name="maxPer" Style="{StaticResource myTextBox}" BorderThickness="0 0 0 1" BorderBrush="#FF434948" Width="70" Margin="5 0" TextChanged="txtVoucher_TextChanged" />
+                                    <TextBlock Grid.Column="4" Text="%" Style="{StaticResource darkFont}" VerticalAlignment="Center" />
+                                </Grid>
+                            </Border>
+                            <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource containTextBox}" Margin="20 10" Height="50">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="SL:" Style="{StaticResource darkFont}" VerticalAlignment="Center" Margin="10 0 0 0" />
+                                    <TextBox x:Name="minAmount" Grid.Column="1" Style="{StaticResource myTextBox}" BorderThickness="0 0 0 1" BorderBrush="#FF434948" MinWidth="55" Margin="10 0" TextChanged="txtVoucher_TextChanged" />
+                                    <TextBlock Text=" - " Grid.Column="2" Style="{StaticResource darkFont}" VerticalAlignment="Center" />
+                                    <TextBox x:Name="maxAmount" Grid.Column="3" Style="{StaticResource myTextBox}" BorderThickness="0 0 0 1" BorderBrush="#FF434948" MinWidth="55" Margin="10 0" TextChanged="txtVoucher_TextChanged" />
+                                </Grid>
+                            </Border>
+                            <Border Grid.Column="1" Grid.Row="2" Style="{StaticResource containTextBox}" Margin="20 10" Height="50">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Điểm:" Style="{StaticResource darkFont}" VerticalAlignment="Center" Margin="10 0 0 0" />
+                                    <TextBox Grid.Column="1" x:Name="minPoint" Style="{StaticResource myTextBox}" BorderThickness="0 0 0 1" BorderBrush="#FF434948" MinWidth="45" Margin="10 0" TextChanged="txtVoucher_TextChanged" />
+                                    <TextBlock Grid.Column="2" Text=" - " Style="{StaticResource darkFont}" VerticalAlignment="Center" />
+                                    <TextBox Grid.Column="3" x:Name="maxPoint" Style="{StaticResource myTextBox}" BorderThickness="0 0 0 1" BorderBrush="#FF434948" MinWidth="45" Margin="10 0" TextChanged="txtVoucher_TextChanged" />
+                                </Grid>
+                            </Border>
+                            <Border Grid.Column="0" Grid.Row="2" Style="{StaticResource containTextBox}" Margin="20 10" Height="50">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Từ:" Style="{StaticResource darkFont}" VerticalAlignment="Center" Margin="10 0 0 0" />
+                                    <DatePicker Grid.Column="1" x:Name="minDate" Style="{DynamicResource myDatePicker}" CalendarStyle="{DynamicResource myCalendar}" VerticalAlignment="Center" Margin="5" SelectedDateChanged="dateVoucher_SelectedDateChange" />
+                                    <TextBlock Grid.Column="2" Text=" - " Style="{StaticResource darkFont}" VerticalAlignment="Center" />
+                                    <DatePicker Grid.Column="3" x:Name="maxDate" Style="{DynamicResource myDatePicker}" CalendarStyle="{DynamicResource myCalendar}" VerticalAlignment="Center" Margin="5" SelectedDateChanged="dateVoucher_SelectedDateChange" />
+                                </Grid>
+                            </Border>
+                            <Border Grid.Column="0" Grid.Row="1" Style="{StaticResource containTextBox}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox x:Name="searchNameVoucher" Style="{StaticResource myTextBox}" Margin="10 0 0 0" Width="305" TextChanged="txtVoucher_TextChanged" />
+                                    <Image Source="asset/icons/search.png" Margin="10" />
+                                </StackPanel>
+                            </Border>
+                            <Button Grid.Column="2" x:Name="addVoucher" Grid.Row="2" Style="{DynamicResource GreenButton}" Content="Thêm Voucher" Margin="20.4,15,20,15" Click="addVoucher_Click" />
+                            <ListView x:Name="voucherList" Grid.ColumnSpan="4" Grid.Row="3" x:FieldModifier="public" HorizontalAlignment="Left" Margin="50 20 50 0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" Height="Auto" ItemsPanel="{DynamicResource ItemsPanelTemplate1}">
+                                <ListView.View>
+                                    <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle1}">
+                                        <GridViewColumn Header="ID">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=CouponID}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Tên voucher">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=Name}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Ngày bắt đầu">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=StartDate}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Ngày kết thúc">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=EndDate}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Phần trăm giảm giá">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=PercentageDiscount, StringFormat={}{0:P0}}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Giảm tối đa">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=_MaxDiscount, StringFormat={}{0:N0} đ}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Số lượng">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=Amount}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Điểm quy đổi">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=RedemptionPoints}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Sửa">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border Width="50">
+                                                        <Border Grid.Column="2" Width="30" Height="30" BorderBrush="{x:Null}" Background="#FF53825E" CornerRadius="10" Padding="10" Cursor="Hand" Margin="8" MouseLeftButtonDown="editVoucher">
+                                                            <Image Source="asset/icons/edit.png" Stretch="Uniform" />
+                                                        </Border>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Xóa">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border Width="50">
+                                                        <Border Grid.Column="2" Width="30" Height="30" BorderBrush="{x:Null}" Background="#FFCE855D" CornerRadius="10" Padding="10" Cursor="Hand" Margin="8" MouseLeftButtonDown="delVoucher">
+                                                            <Image Source="asset/icons/trash.png" Stretch="Uniform" />
+                                                        </Border>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Grid>
+                    </Border >
+                    <Border x:Name="Tab5" Background="White" Panel.ZIndex="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60" />
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="80" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="1.5*" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Voucher" Grid.ColumnSpan="3" Style="{StaticResource Title}" />
+                            <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="20 10" Height="50" Style="{StaticResource containTextBox}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition MaxWidth="100" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox x:Name="searchEmployee" Style="{StaticResource myTextBox}" Margin="10 0 0 0" TextChanged="searchEmployee_TextChanged" />
+                                    <Image Grid.Column="1" Source="asset/icons/search.png" Margin="10" />
+                                </Grid>
+                                  
+                            </Border>
+                            <Border Grid.Column="1" Grid.Row="2" Style="{StaticResource containTextBox}" Margin="20 10" Height="50">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Ngày sinh:" Style="{StaticResource darkFont}" VerticalAlignment="Center" Margin="10 0 10 0" />
+                                    <DatePicker Grid.Column="1" x:Name="searchDob" Style="{DynamicResource myDatePicker}" CalendarStyle="{DynamicResource myCalendar}" VerticalAlignment="Center" Margin="5" SelectedDateChanged="searchEmployee_SelectedDateChanged" />
+                                </Grid>
+                            </Border>
+                            <Border Grid.Column="0" Grid.Row="2" Style="{StaticResource containTextBox}" Margin="20 10" Height="50">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Ngày vào làm:" Style="{StaticResource darkFont}" VerticalAlignment="Center" Margin="10 0 10 0" />
+                                    <DatePicker Grid.Column="1" x:Name="searchStartDate" Style="{DynamicResource myDatePicker}" CalendarStyle="{DynamicResource myCalendar}" VerticalAlignment="Center" Margin="5" SelectedDateChanged="searchEmployee_SelectedDateChanged" />
+                                </Grid>
+                            </Border>
+                            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                                <CheckBox VerticalAlignment="Center" Content="Còn làm" Margin="20 0" x:Name="ckboxIsEmployeed" FontFamily="/Qualitea;component/fonts/#Montserrat Medium" Foreground="#FF434948" FontSize="16" IsChecked="True" Checked="ckboxEmployeed_CheckChanged" Unchecked="ckboxEmployeed_CheckChanged" />
+                                <CheckBox VerticalAlignment="Center" Content="Đã nghỉ" Margin="20 0" x:Name="ckboxIsUnemployeed" FontFamily="/Qualitea;component/fonts/#Montserrat Medium" Foreground="#FF434948" FontSize="16" IsChecked="True" Unchecked="ckboxEmployeed_CheckChanged" Checked="ckboxEmployeed_CheckChanged" />
+                            </StackPanel>
+                            <Button Grid.Column="2" x:Name="addEmployee" Grid.Row="2" Style="{DynamicResource GreenButton}" Content="Thêm nhân viên" Margin="20.4,15,20,15" Click="addEmployee_Click" />
+                            <ListView x:Name="employeeList" Grid.ColumnSpan="4" Grid.Row="3" x:FieldModifier="public" HorizontalAlignment="Left" Margin="50 20 50 0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" Height="Auto" ItemsPanel="{DynamicResource ItemsPanelTemplate1}">
+                                <ListView.View>
+                                    <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle1}">
+                                        <GridViewColumn Header="ID">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=PersonID}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Họ tên">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=Person.Name}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Ngày sinh">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=Person.DOB, StringFormat={}{0:dd/MM/yyyy}}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Email">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=Person.Email}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Chức vụ">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=Person.Employee.Role.Name}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Username">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=Username}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Ngày vào làm">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=Person.Employee.StartDate, StringFormat={}{0:dd/MM/yyyy}}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Còn làm">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <CheckBox IsChecked="{Binding Path=Person.Employee._isEmployed, Mode=OneWay}" IsEnabled="False"/>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Ngày nghỉ làm">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <TextBlock Grid.Column="0" Text="{Binding Path=Person.Employee.EndDate, StringFormat={}{0:dd/MM/yyyy}}" VerticalAlignment="Center" Style="{StaticResource myFont}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Xem sửa">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border Width="50">
+                                                        <Border Grid.Column="2" Width="30" Height="30" BorderBrush="{x:Null}" Background="#FF53825E" CornerRadius="10" Padding="8" Cursor="Hand" Margin="8" MouseLeftButtonDown="EmployeeDetail_Click">
+                                                            <Image Source="asset/icons/user-pen.png" Stretch="Uniform" />
+                                                        </Border>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Xóa">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Border Width="50">
+                                                        <Border Grid.Column="2" Width="30" Height="30" BorderBrush="{x:Null}" Background="#FFCE855D" CornerRadius="10" Padding="8" Cursor="Hand" Margin="8">
+                                                            <Image Source="asset/icons/trash.png" Stretch="Uniform" />
+                                                        </Border>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Grid>
+                    </Border >
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
