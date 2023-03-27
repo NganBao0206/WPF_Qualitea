@@ -1,0 +1,21 @@
+﻿<Application x:Class="Qualitea.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Qualitea"
+             StartupUri="Login.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="EmployeeResources/Style.xaml"/>
+                <ResourceDictionary Source="EmployeeResources/MyButton.xaml"/>
+                <ResourceDictionary Source="myControlsCustom/controlsResource.xaml" />
+                <ResourceDictionary Source="myControlsCustom/ComboBox.xaml" />
+                <ResourceDictionary Source="myControlsCustom/listView.xaml" />
+                <ResourceDictionary Source="myControlsCustom/RadioButton.xaml" />
+                <ResourceDictionary Source="myControlsCustom/Scroll.xaml" />
+                <ResourceDictionary Source="myControlsCustom/DatePicker.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>
