@@ -1,0 +1,17 @@
+D:\Personal Folder\OneDrive\Documents\Qualitea\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
+D:\Personal Folder\OneDrive\Documents\Qualitea\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+D:\Personal Folder\OneDrive\Documents\Qualitea\DAO\bin\Debug\DAO.dll.config
+D:\Personal Folder\OneDrive\Documents\Qualitea\DAO\bin\Debug\DAO.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\DAO\bin\Debug\DAO.pdb
+D:\Personal Folder\OneDrive\Documents\Qualitea\DAO\bin\Debug\DTO.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\DAO\bin\Debug\EntityFramework.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\DAO\bin\Debug\EntityFramework.SqlServer.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\DAO\bin\Debug\DTO.pdb
+D:\Personal Folder\OneDrive\Documents\Qualitea\DAO\bin\Debug\EntityFramework.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\DAO\bin\Debug\EntityFramework.SqlServer.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\DAO\obj\Debug\DAO.csproj.CopyComplete
+D:\Personal Folder\OneDrive\Documents\Qualitea\DAO\obj\Debug\DAO.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\DAO\obj\Debug\DAO.pdb
+D:\Personal Folder\OneDrive\Documents\Qualitea\DAO\bin\Debug\DTO.dll.config
+D:\Personal Folder\OneDrive\Documents\Qualitea\DAO\obj\Debug\DAO.Migrations.qualitea.resources
+D:\Personal Folder\OneDrive\Documents\Qualitea\DAO\obj\Debug\DAO.csproj.GenerateResource.cache
