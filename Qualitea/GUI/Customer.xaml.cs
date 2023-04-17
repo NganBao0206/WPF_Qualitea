@@ -363,14 +363,44 @@ namespace GUI
 
         private void continuePay_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            bill.ItemsSource = cart.ItemsSource;
-            tabConfirm.Visibility = Visibility.Visible;
-            billTotal.Text = txtTotal.Text;
-            billDiscount.Text = txtDiscount.Text;
-            billCash.Text = txtCash.Text;
+            if (od.Count > 0)
+            {
+                bill.ItemsSource = cart.ItemsSource;
+                tabConfirm.Visibility = Visibility.Visible;
+                billTotal.Text = txtTotal.Text;
+                billDiscount.Text = txtDiscount.Text;
+                billCash.Text = txtCash.Text;
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn sản phẩm để tiếp tục");
+            }
         }
+        
+        private void btnCancel_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (od.Count > 0)
+            {
+                if (MessageBox.Show("Bạn có chắc là hủy đơn hàng này không?", "Lưu ý", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    od.Clear();
+                    cart.ItemsSource = od;
+                    var view = CollectionViewSource.GetDefaultView(cart.ItemsSource);
+                    view.Refresh();
+                    txtTotal.Text = "0đ";
+                    txtDiscount.Text = "0đ";
+                    txtCash.Text = "0đ";
+                    total = 0;
+                    discountTotal = 0;
+                    isApply = false;
 
-
+                    initScoreApply();
+                    MessageBox.Show("Hủy đơn thành công", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            else
+                MessageBox.Show("Bạn không thể hủy đơn khi không có sẵn phẩm", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
 
         private void confirmBill(object sender, MouseButtonEventArgs e)
         {
@@ -482,6 +512,41 @@ namespace GUI
             selected = null;
             quantity.Text = 1.ToString();
             priceMainPrd.Text = prd.MinPrice.ToString("N0") + "đ";
+        }
+
+        private void cancelOrder_Click(object sender, RoutedEventArgs e)
+        {
+            OrderHeader o = ((Button)sender).DataContext as OrderHeader;
+            if (o.Status == 0)
+            {
+                if (MessageBox.Show("Bạn có chắc chắn muốn hủy không?", "Stop", MessageBoxButton.YesNo, MessageBoxImage.Stop) == MessageBoxResult.Yes)
+                {
+                    
+                    if (busOrder.cancelOrder(o.OrderHeaderID))
+                    {
+                        busOrder = new BUS_Order();
+                        MessageBox.Show("Hủy đơn thành công");
+                        mainOrder.DataContext = null;
+                        Panel.SetZIndex(beforeOrderView, 1);
+
+                        userOrder.ItemsSource = busOrder.GetOrderHeadersByCustomerID(CurrentLogin.Instance.LoginID);
+                        init();
+                    }
+                    else
+                    {
+                        busOrder = new BUS_Order();
+                        MessageBox.Show("Đã có lỗi xảy ra, không thể hủy đơn");
+
+                        mainOrder.DataContext = busOrder.GetOrderHeadersByID(o.OrderHeaderID);
+                        Panel.SetZIndex(beforeOrderView, 0);
+                        userOrder.ItemsSource = busOrder.GetOrderHeadersByCustomerID(CurrentLogin.Instance.LoginID);
+                    }
+                }
+            } 
+            else
+            {
+                MessageBox.Show("Bạn chỉ được hủy đơn chưa được xác nhận");
+            }
         }
     }
 }

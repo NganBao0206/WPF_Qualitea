@@ -60,7 +60,7 @@
                 </Border>
             </StackPanel>
             <Button x:Name="editPrd" Grid.Column="1" Grid.Row="2" Content="Sửa sản phẩm" Style="{StaticResource button}" Height="60" Margin="30 0" Width="200" Click="editPrd_Click" />
-            <Button x:Name="delPrd" Grid.Column="1" Grid.Row="3" Content="Xóa sản phẩm" Style="{StaticResource button}" Height="60" Margin="30 20 30 50" Width="200" />
+            <Button x:Name="delPrd" Grid.Column="1" Grid.Row="3" Content="Xóa sản phẩm" Style="{StaticResource button}" Height="60" Margin="30 20 30 50" Width="200" Click="delPrd_Click"/>
 
             <Border Padding="10" CornerRadius="30" Background="White" Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Margin="30 0 0 50" x:Name="ProductInfo">
                 <StackPanel Margin="30 0">

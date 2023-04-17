@@ -295,7 +295,7 @@
                                                 <Button Content="x" Style="{StaticResource myDarkRoundBtn}" Grid.Column="1" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Click="cancelInfoCustomer" Panel.ZIndex="2" />
                                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                                     <TextBlock Style="{StaticResource darkFont}" Text="Khách hàng: " />
-                                                    <TextBlock Margin="5 0 0 0" Grid.ColumnSpan="2" Text="{Binding Path=Name}" />
+                                                    <TextBlock Margin="5 0 0 0" Grid.ColumnSpan="2" Text="{Binding Path=Name}" Style="{StaticResource darkFont}"/>
                                                 </StackPanel>
                                                 
                                                 <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="1">

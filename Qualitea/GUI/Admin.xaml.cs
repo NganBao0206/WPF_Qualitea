@@ -605,6 +605,7 @@ namespace GUI
             dateSelector.Visibility = Visibility.Collapsed;
             minDate.SelectedDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             maxDate.SelectedDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month));
+            YearSelector.Visibility = Visibility.Collapsed;
             select = 2;
             if (isChartShowing)
                 loadChartMonth();
@@ -635,6 +636,7 @@ namespace GUI
             dateSelector.Visibility = Visibility.Collapsed;
             minDate.SelectedDate = DateTime.Now;
             maxDate.SelectedDate = DateTime.Now;
+            YearSelector.Visibility = Visibility.Collapsed;
             select = 3;
             if (isChartShowing)
                 loadChartDate();

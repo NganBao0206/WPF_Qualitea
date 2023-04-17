@@ -151,5 +151,14 @@ namespace BUS
             return daoOrder.TotalOrderEmployeeToday(StaffID);
         }
 
+        public bool cancelOrder(int OrderHeaderID)
+        {
+            return daoOrder.cancelOrder(OrderHeaderID);
+        }
+
+        public List<OrderDetail> GetOrderDetailsByProductID(int ProductID)
+        {
+            return daoOrder.GetOrderDetailsByProductID(ProductID);
+        }
     }
 }

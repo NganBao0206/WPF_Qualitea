@@ -29,6 +29,7 @@ namespace GUI
         string imagePath = "";
         private BUS_Category busCategory = new BUS_Category();
         private BUS_Product busProduct = new BUS_Product();
+        private BUS_Order busOrder = new BUS_Order();
         private Product _product { get; set; }
         private ObservableCollection<ProductOption> productOptions;
 
@@ -98,7 +99,8 @@ namespace GUI
             imgPrd.BeginInit();
             imgPrd.UriSource = new Uri(product.Image);
             imgPrd.EndInit();
-            imgPrd.DownloadCompleted += (s, e) => {
+            imgPrd.DownloadCompleted += (s, e) =>
+            {
                 getColorFromImg(imgPrd);
             };
         }
@@ -213,60 +215,82 @@ namespace GUI
         private void editPrd_Click(object sender, RoutedEventArgs e)
         {
             string mess = "";
-            
-            if (imageProduct.Source == null)
+            if (myList.Items.Count + myListOption.Items.Count > 0)
             {
-                uploadButton.BorderBrush = Brushes.Red;
-                mess += "Chưa thêm ảnh sản phẩm";
-                MessageBox.Show(mess);
-                return;
-            } //Kiểm tra ảnh
-
-            if (namePrd.Text == "")
-            {
-                boxNamePrd.BorderBrush = Brushes.Red;
-                mess += "Chưa nhập tên sản phẩm\n";
-                MessageBox.Show(mess);
-                return;
-            } //Kiểm tra tên
-            if (comboBoxCate.SelectedItem == null)
-            {
-                comboBoxCate.Style = (Style)FindResource("ComboBoxStyle2");
-                mess += "Chưa chọn loại sản phẩm\n";
-                MessageBox.Show(mess);
-                return;
-            } //Kiểm tra loại
-
-            for (int i = 0; i < productOptions.Count; i++)
-            {
-                ProductOption po = productOptions[i];
-                if (String.IsNullOrEmpty(po.Size))
+                if (imageProduct.Source == null)
                 {
-                    MessageBox.Show("Vui lòng điền đủ thông tin về kích thước");
+                    uploadButton.BorderBrush = Brushes.Red;
+                    mess += "Chưa thêm ảnh sản phẩm";
+                    MessageBox.Show(mess);
                     return;
-                }
-                if (po.Price <= 0)
-                {
-                    MessageBox.Show("Giá tiền phải lớn hơn 0");
-                    return;
-                }
-            } //Kiểm tra các size và giá tiền mới
-            if (imagePath != "")
-                _product.Image = imagePath;
+                } //Kiểm tra ảnh
 
-            if (busProduct.editProduct(_product, productOptions.ToList()))
+                if (namePrd.Text == "")
+                {
+                    boxNamePrd.BorderBrush = Brushes.Red;
+                    mess += "Chưa nhập tên sản phẩm\n";
+                    MessageBox.Show(mess);
+                    return;
+                } //Kiểm tra tên
+                if (comboBoxCate.SelectedItem == null)
+                {
+                    comboBoxCate.Style = (Style)FindResource("ComboBoxStyle2");
+                    mess += "Chưa chọn loại sản phẩm\n";
+                    MessageBox.Show(mess);
+                    return;
+                } //Kiểm tra loại
+
+                for (int i = 0; i < productOptions.Count; i++)
+                {
+                    ProductOption po = productOptions[i];
+                    if (String.IsNullOrEmpty(po.Size))
+                    {
+                        MessageBox.Show("Vui lòng điền đủ thông tin về kích thước");
+                        return;
+                    }
+                    if (po.Price <= 0)
+                    {
+                        MessageBox.Show("Giá tiền phải lớn hơn 0");
+                        return;
+                    }
+                } //Kiểm tra các size và giá tiền mới
+                if (imagePath != "")
+                    _product.Image = imagePath;
+
+                if (busProduct.editProduct(_product, productOptions.ToList()))
+                {
+                    MessageBox.Show("Sửa thành công");
+                    busProduct = new BUS_Product();
+                    product = busProduct.getProduct(product);
+                    productOptions.Clear();
+
+                    init();
+                    CollectionViewSource.GetDefaultView(myList.ItemsSource).Refresh();
+                    myList.UpdateLayout();
+                }
+                else
+                    MessageBox.Show("Đã có lỗi xảy ra không thể sửa");
+            } else
             {
-                MessageBox.Show("Sửa thành công");
-                busProduct = new BUS_Product();
-                product = busProduct.getProduct(product);
-                productOptions.Clear();
-                
-                init();
-                CollectionViewSource.GetDefaultView(myList.ItemsSource).Refresh();
-                myList.UpdateLayout();
+                if (MessageBox.Show("Sản phẩm không thể không có thông tin về size, bạn có muốn xóa sản phẩm này không?", "Stop", MessageBoxButton.YesNo, MessageBoxImage.Stop) == MessageBoxResult.Yes)
+                {
+                    if (busOrder.GetOrderDetailsByProductID(_product.ProductID).Count > 0)
+                    {
+                        MessageBox.Show("Sản phẩm này đã được bán không thể xóa, bạn chỉ có thể xóa sản phẩm chưa bán được");
+                        return;
+                    }
+                    if (busProduct.delProduct(_product))
+                    {
+                        MessageBox.Show("Xóa thành công");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã có lỗi xảy ra, xóa không thành công");
+                    }
+                }
             }
-            else
-                MessageBox.Show("Đã có lỗi xảy ra không thể sửa");
+            
         }
 
         private void options_Checked(object sender, RoutedEventArgs e)
@@ -299,7 +323,7 @@ namespace GUI
 
         private void isActive_Checked(object sender, RoutedEventArgs e)
         {
-            
+
             if (myList != null && myList.Items.Count > 0)
             {
                 bool flag = false;
@@ -315,9 +339,9 @@ namespace GUI
                     foreach (ProductOption po in _product.ProductOptions)
                         po.IsActive = true;
                 CollectionViewSource.GetDefaultView(myList.ItemsSource).Refresh();
-            } 
-                
-           
+            }
+
+
         }
 
         private void removeOldSize_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -330,8 +354,8 @@ namespace GUI
             {
                 MessageBox.Show("Không thể xóa vì kích cỡ này đã được bán, thay vào đó xin vui lòng bỏ tick để vô hiệu hóa kích cỡ này");
                 return;
-            } 
-                
+            }
+
             _product.ProductOptions.Remove(po);
             bool flag = false;
             foreach (ProductOption p in _product.ProductOptions)
@@ -345,6 +369,24 @@ namespace GUI
             if (!flag && myListOption.Items.Count == 0)
                 isActive.IsChecked = false;
             CollectionViewSource.GetDefaultView(myList.ItemsSource).Refresh();
+        }
+
+        private void delPrd_Click(object sender, RoutedEventArgs e)
+        {
+            if (busOrder.GetOrderDetailsByProductID(_product.ProductID).Count > 0)
+            {
+                MessageBox.Show("Sản phẩm này đã được bán không thể xóa, bạn chỉ có thể xóa sản phẩm chưa bán được");
+                return;
+            }    
+            if (busProduct.delProduct(_product))
+            {
+                MessageBox.Show("Xóa thành công");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Đã có lỗi xảy ra, xóa không thành công");
+            }
         }
     }
 }

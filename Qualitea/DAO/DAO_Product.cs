@@ -133,6 +133,41 @@ namespace DAO
             }
         }
 
+        public bool delProduct(int ProductID)
+        {
+            using (var transaction = entities.Database.BeginTransaction())
+            {
+                try
+                {
+                    entities.Configuration.AutoDetectChangesEnabled = false;
+
+                    
+                    DAO_Order daoOrder = new DAO_Order();
+                    if (daoOrder.GetOrderDetailsByProductID(ProductID).Count > 0)
+                    {
+                        return false;
+                    }
+                    Product p = entities.Products.Find(ProductID);
+                    List<ProductOption> pos = p.ProductOptions.ToList();
+                    entities.Products.Remove(p);
+
+                    entities.ChangeTracker.DetectChanges();
+                    int result = entities.SaveChanges();
+                    entities.Configuration.AutoDetectChangesEnabled = true;
+
+                    transaction.Commit();
+
+                    return result > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    transaction.Rollback();
+                    return false;
+                }
+            }
+        }
+
        
     }
 }

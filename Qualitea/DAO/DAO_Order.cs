@@ -440,5 +440,45 @@ namespace DAO
             List<OrderHeader> oh = getEmployeeOrders(StaffID);
             return oh.Where(o => o.OrderDate.Date == DateTime.Now.Date).Sum(o => o.Total - o.DiscountTotal);
         }
+
+        public bool cancelOrder(int OrderHeaderID)
+        {
+            using (var transaction = entities.Database.BeginTransaction())
+            {
+                try
+                {
+                    entities.Configuration.AutoDetectChangesEnabled = false;
+                    OrderHeader o = entities.OrderHeaders.Find(OrderHeaderID);
+                    if (o.Status != 0)
+                        return false;
+                    if (o.CustomerID != null)
+                    {
+                        int score = (int)Math.Round(o.Total - o.DiscountTotal);
+                        DTO.Customer c = entities.Customers.Find(o.CustomerID);
+                        c.Score -= score;
+                    }
+
+                    entities.OrderHeaders.Remove(o);
+                    entities.ChangeTracker.DetectChanges();
+                    int result = entities.SaveChanges();
+                    entities.Configuration.AutoDetectChangesEnabled = true;
+
+                    transaction.Commit();
+
+                    return result > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    transaction.Rollback();
+                    return false;
+                }
+            }
+        }
+
+        public List<OrderDetail> GetOrderDetailsByProductID(int ProductID)
+        {
+            return entities.OrderDetails.Where(o => o.ProductOption.ProductID == ProductID).ToList();
+        }
     }
 }

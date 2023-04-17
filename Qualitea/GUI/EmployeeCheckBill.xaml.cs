@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using BUS;
 using DTO;
 
@@ -27,10 +28,27 @@ namespace GUI
         public EmployeeCheckBill()
         {
             InitializeComponent();
+            
             listOrder.ItemsSource = busOrder.getEmployeeOrders(CurrentLogin.Instance.LoginID, null, isOnline, status);
-            listOrderByCustomer.ItemsSource = busOrder.getUnconfimredOrders();
-            if (listOrderByCustomer != null)
+            List<OrderHeader> unConfirmedOrders = busOrder.getUnconfimredOrders();
+            listOrderByCustomer.ItemsSource = unConfirmedOrders;
+            if (unConfirmedOrders.Count > 0)
                 ShowAnnounce.Visibility = Visibility.Visible;
+            DispatcherTimer timer = new DispatcherTimer(DispatcherPriority.Background);
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.IsEnabled = true;
+            timer.Tick += (s, e) =>
+            {
+                busOrder = new BUS_Order();
+                unConfirmedOrders = busOrder.getUnconfimredOrders();
+                listOrderByCustomer.ItemsSource = unConfirmedOrders;
+                if (unConfirmedOrders.Count > 0)
+                    ShowAnnounce.Visibility = Visibility.Visible;
+                else
+                {
+                    ShowAnnounce.Visibility = Visibility.Collapsed;
+                }
+            };
 
         }
 
@@ -55,13 +73,13 @@ namespace GUI
 
         private void btnNotice_Click(object sender, RoutedEventArgs e)
         {
-            ShowAnnounce.Visibility = Visibility.Collapsed;
+            //ShowAnnounce.Visibility = Visibility.Collapsed;
             ShowCusOrder.Visibility = Visibility.Collapsed;
         }
 
         private void btnBell_Click(object sender, RoutedEventArgs e)
         {
-            ShowAnnounce.Visibility = Visibility.Visible;
+            //ShowAnnounce.Visibility = Visibility.Visible;
             ShowCusOrder.Visibility = Visibility.Visible;
         }
 
@@ -69,6 +87,11 @@ namespace GUI
         {
             Button complete = (Button)sender;
             OrderHeader oh = complete.DataContext as OrderHeader;
+            if (oh.Status == 2)
+            {
+                MessageBox.Show("Đơn hàng này đã được xác nhận hoàn thành");
+                return;
+            }
             if (busOrder.ChangeStatus(oh, 2))
             {
                 loadOrder();

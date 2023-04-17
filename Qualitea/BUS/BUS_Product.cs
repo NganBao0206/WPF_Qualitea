@@ -82,6 +82,22 @@ namespace BUS
             }
         }
 
+        public bool delProduct(Product product)
+        {
+            string oldUrl = dp.getProduct(product).Image;
+            int lastSlash = oldUrl.LastIndexOf("/");
+            int dot = oldUrl.LastIndexOf(".");
+            string publicID = oldUrl.Substring(lastSlash + 1, dot - lastSlash - 1);
+            cloudinary clou = new cloudinary();
+            bool result = dp.delProduct(product.ProductID);
+            if (result)
+            {
+                clou.delImage(publicID);
+                return true;
+            }
+            return false;
+        }
+
         public  object getProducts(object isActive)
         {
             throw new NotImplementedException();

@@ -240,9 +240,17 @@ namespace GUI
         
         private void btnPay_Click(object sender, RoutedEventArgs e)
         {
+            if (od.Count <= 0)
+            {
+                MessageBox.Show("Vui lòng chọn sản phẩm để thanh toán");
+                return;
+            }
             if (MessageBox.Show("Bạn có chắc chắn đã thanh toán không?", "Stop", MessageBoxButton.YesNo, MessageBoxImage.Stop) == MessageBoxResult.Yes)
             {
-                if (busOrder.addNewEmpOrder(total/1000, discountTotal/1000, od.ToList(), customer.CustomerID, ScoreApply ,CurrentLogin.Instance.LoginID))
+                int? userId = null;
+                if (customer != null)
+                    userId = customer.CustomerID;
+                if (busOrder.addNewEmpOrder(total/1000, discountTotal/1000, od.ToList(), userId, ScoreApply ,CurrentLogin.Instance.LoginID))
                 {
                     od.Clear();
                     Bill.ItemsSource = od;
@@ -282,6 +290,19 @@ namespace GUI
                     Bill.ItemsSource = od;
                     var view = CollectionViewSource.GetDefaultView(Bill.ItemsSource);
                     view.Refresh();
+                    isApply = false;
+                    infoCustomer.DataContext = null;
+                    customer = null;
+                    infoCustomer.Visibility = Visibility.Hidden;
+                    ScoreApply_Button.Style = this.FindResource("disable") as Style;
+                    ScoreApply_Bar.Style = this.FindResource("disable") as Style;
+                    ScoreApply = 0;
+                    total = 0;
+                    discountTotal = 0;
+                    txtTotal.Text = total.ToString("N0") + "đ";
+                    txtDiscount.Text = discountTotal.ToString("N0") + "đ";
+                    txtCash.Text = (total - discountTotal).ToString("N0") + "đ";
+                    idCustomer.Text = "";
                     MessageBox.Show("Hủy đơn thành công","Thành công",MessageBoxButton.OK,MessageBoxImage.Information);
                 }
             }

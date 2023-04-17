@@ -30,7 +30,7 @@ namespace GUI
         {
             InitializeComponent();
             DispatcherTimer timer = new DispatcherTimer(DispatcherPriority.Background);
-            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Interval = TimeSpan.FromSeconds(30);
             timer.IsEnabled = true;
             timer.Tick += (s, e) =>
             {
@@ -84,6 +84,8 @@ namespace GUI
         }
 
        
+
+
         private void LogOut_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn đăng xuất không?", "Stop", MessageBoxButton.YesNo, MessageBoxImage.Stop) == MessageBoxResult.Yes)
