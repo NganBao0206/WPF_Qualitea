@@ -71,11 +71,12 @@ namespace GUI
             {
                 new ColumnSeries
                 {
-                    Values = offlineTotal,
+                    Values =  offlineTotal,
                     Title = "Doanh thu offline",
                     Fill = new SolidColorBrush(Color.FromRgb(186,211,115)),
                     LabelPoint = point => point.Y + "K",
                 },
+
                 new LineSeries
                 {
                     Values = onlineTotal,
@@ -93,9 +94,10 @@ namespace GUI
 
 
             var cateSales = busOrder.getCategorySalesInMonth();
-            
+
             SeriesCollection series2 = new SeriesCollection
             {
+                
             };
 
             foreach (TypeSales c in cateSales)
@@ -106,8 +108,6 @@ namespace GUI
                     Values = new ChartValues<int>() { c.TotalSales },
                     LabelPoint = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation),
                 };
-                if (c.TotalSales != 0)
-                    pieSeries.DataLabels = true;
 
                 series2.Add(pieSeries);
 
@@ -129,8 +129,6 @@ namespace GUI
                     Values = new ChartValues<int>() { c.TotalSales },
                     LabelPoint = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation),
                 };
-                if (c.TotalSales != 0)
-                    pieSeries.DataLabels = true;
 
                 series3.Add(pieSeries);
 
@@ -411,7 +409,12 @@ namespace GUI
 
         private void LogOut_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Bạn có muốn đăng xuất không?", "Stop", MessageBoxButton.YesNo, MessageBoxImage.Stop) == MessageBoxResult.Yes)
+            {
+                Login l = new Login();
+                this.Close();
+                l.Show();
+            }
         }
 
         public void loadPrd()
@@ -704,10 +707,10 @@ namespace GUI
         private bool isChartShowing = false;
         private void btnShowChart_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (isChartShowing)
+            if (!isChartShowing)
             {
-                tabChart.Visibility = Visibility.Collapsed;
-                isChartShowing = false;
+                tabChart.Visibility = Visibility.Visible;
+                isChartShowing = true;
                 switch(select)
                 {
                     case 1:
@@ -726,8 +729,8 @@ namespace GUI
             }
             else
             {
-                tabChart.Visibility = Visibility.Visible;
-                isChartShowing = true;
+                tabChart.Visibility = Visibility.Collapsed;
+                isChartShowing = false;
                 txtShowChart.Text = "Xem hóa đơn";
             } 
                 

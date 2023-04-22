@@ -30,7 +30,7 @@ namespace GUI
         {
             InitializeComponent();
             DispatcherTimer timer = new DispatcherTimer(DispatcherPriority.Background);
-            timer.Interval = TimeSpan.FromSeconds(30);
+            timer.Interval = TimeSpan.FromSeconds(1);
             timer.IsEnabled = true;
             timer.Tick += (s, e) =>
             {

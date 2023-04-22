@@ -38,6 +38,7 @@ namespace BUS
         {
             try
             {
+                
                 cloudinary clou = new cloudinary();
                 product.Image = clou.addImageForce(product.Image);
                 foreach (ProductOption po in productOptions)
@@ -56,6 +57,7 @@ namespace BUS
         {
             try
             {
+                product.Image = "C:/images/product.png";
                 string url = "";
                 string oldUrl = dp.getProduct(product).Image;
                 int lastSlash = oldUrl.LastIndexOf("/");
@@ -96,11 +98,6 @@ namespace BUS
                 return true;
             }
             return false;
-        }
-
-        public  object getProducts(object isActive)
-        {
-            throw new NotImplementedException();
         }
     }
 }
