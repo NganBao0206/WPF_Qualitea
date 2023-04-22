@@ -190,8 +190,6 @@ namespace GUI
                     Values = new ChartValues<int>() { c.TotalSales },
                     LabelPoint = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation),
                 };
-                if (c.TotalSales != 0)
-                    pieSeries.DataLabels = true;
 
                 series2.Add(pieSeries);
 
@@ -213,8 +211,6 @@ namespace GUI
                     Values = new ChartValues<int>() { c.TotalSales },
                     LabelPoint = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation),
                 };
-                if (c.TotalSales != 0)
-                    pieSeries.DataLabels = true;
 
                 series3.Add(pieSeries);
 
@@ -278,8 +274,6 @@ namespace GUI
                     Values = new ChartValues<int>() { c.TotalSales },
                     LabelPoint = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation),
                 };
-                if (c.TotalSales != 0)
-                    pieSeries.DataLabels = true;
 
                 series2.Add(pieSeries);
 
@@ -301,8 +295,6 @@ namespace GUI
                     Values = new ChartValues<int>() { c.TotalSales },
                     LabelPoint = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation),
                 };
-                if (c.TotalSales != 0)
-                    pieSeries.DataLabels = true;
 
                 series3.Add(pieSeries);
 
