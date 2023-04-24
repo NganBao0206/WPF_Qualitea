@@ -180,8 +180,18 @@ namespace GUI
                 }
                 
                 Bill.ItemsSource = od;
+                
+                if (customer != null)
+                {
+                    ScoreApply = customer.Score < (int)(total * 10 / 100) ? customer.Score : (int)(total * 10 / 100);
+                    if (isApply)
+                    {
+                        discountTotal = ScoreApply;
+                        txtDiscount.Text = discountTotal.ToString("N0") + "đ";
+                    }
+                }
                 txtTotal.Text = total.ToString("N0") + "đ";
-                txtCash.Text = txtTotal.Text;
+                txtCash.Text = (total - discountTotal).ToString("N0") + "đ";
                 var view = CollectionViewSource.GetDefaultView(Bill.ItemsSource);
                 view.Refresh();
             }
@@ -195,10 +205,21 @@ namespace GUI
             {
                 Border del = sender as Border;
                 OrderDetail delOD = del.DataContext as OrderDetail;
+                total -= delOD._totalLine;
                 od.Remove(delOD);
                 selected.Background = color;
-                txtTotal.Text = (total - delOD._totalLine).ToString("N0") + "đ";
-                txtCash.Text = txtTotal.Text;
+                if (customer != null)
+                {
+                    ScoreApply = customer.Score < (int)(total * 10 / 100) ? customer.Score : (int)(total * 10 / 100);
+                    if (isApply)
+                    {
+                        discountTotal = ScoreApply;
+                        txtDiscount.Text = discountTotal.ToString("N0") + "đ";
+                    }
+                }
+                txtTotal.Text = total.ToString("N0") + "đ";
+                txtCash.Text = (total - discountTotal).ToString("N0") + "đ";
+
 
             }
         }
@@ -216,9 +237,17 @@ namespace GUI
             }
             minusOD.TotalLine = minusOD.Quantity * minusOD.ProductOption.Price;
             total -= minusOD.ProductOption._price;
+            if (customer != null)
+            {
+                ScoreApply = customer.Score < (int)(total * 10 / 100) ? customer.Score : (int)(total * 10 / 100);
+                if (isApply)
+                {
+                    discountTotal = ScoreApply;
+                    txtDiscount.Text = discountTotal.ToString("N0") + "đ";
+                }
+            }
             txtTotal.Text = total.ToString("N0") + "đ";
-            txtCash.Text = txtTotal.Text;
-            Bill.ItemsSource = od;
+            txtCash.Text = (total - discountTotal).ToString("N0") + "đ";
             var view = CollectionViewSource.GetDefaultView(Bill.ItemsSource);
             view.Refresh();
         }
@@ -230,8 +259,17 @@ namespace GUI
             addOD.Quantity += 1;
             addOD.TotalLine = addOD.Quantity * addOD.ProductOption.Price;
             total += addOD.ProductOption._price;
+            if (customer != null)
+            {
+                ScoreApply = customer.Score < (int)(total * 10 / 100) ? customer.Score : (int)(total * 10 / 100);
+                if (isApply)
+                {
+                    discountTotal = ScoreApply;
+                    txtDiscount.Text = discountTotal.ToString("N0") + "đ";
+                }
+            }
             txtTotal.Text = total.ToString("N0") + "đ";
-            txtCash.Text = txtTotal.Text;
+            txtCash.Text = (total - discountTotal).ToString("N0") + "đ";
             Bill.ItemsSource = od;
             var view = CollectionViewSource.GetDefaultView(Bill.ItemsSource);
             view.Refresh();

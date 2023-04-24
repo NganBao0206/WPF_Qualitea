@@ -57,7 +57,6 @@ namespace BUS
         {
             try
             {
-                product.Image = "C:/images/product.png";
                 string url = "";
                 string oldUrl = dp.getProduct(product).Image;
                 int lastSlash = oldUrl.LastIndexOf("/");

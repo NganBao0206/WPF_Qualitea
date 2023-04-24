@@ -359,7 +359,7 @@ namespace GUI
             cw.ShowInTaskbar = false;
             cw.Owner = this;
             cw.ShowDialog();
-            //comboBoxCategory.ItemsSource = BUS_Category.getCategories();
+            comboBoxCategory.ItemsSource = busCategory.getCategories();
         }
 
         private void delCates(object sender, RoutedEventArgs e)
@@ -520,6 +520,7 @@ namespace GUI
             ew.ShowInTaskbar = false;
             ew.Owner = this;
             ew.ShowDialog();
+            updateEmployee();
         }
 
         private void EmployeeDetail_Click(object sender, MouseButtonEventArgs e)
@@ -726,6 +727,44 @@ namespace GUI
                 txtShowChart.Text = "Xem hóa đơn";
             } 
                 
+        }
+
+        private void delEmployee_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Border b = sender as Border;
+            Employee emp = b.DataContext as Employee;
+            if (busOrder.getEmployeeOrders(emp.EmployeeID).Count > 0)
+            {
+                if (emp.IsEmployed == true)
+                {
+                    if (MessageBox.Show("Không thể xóa nhân viên đã lập hóa đơn, bạn có muốn đổi tình trạng nhân viên thành đã nghỉ không", "Stop", MessageBoxButton.YesNo, MessageBoxImage.Stop) == MessageBoxResult.Yes)
+                    {
+                        emp.IsEmployed = false;
+                        busEmployee.editEmployee(emp);
+                        updateEmployee();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không thể xóa nhân viên đã lập hóa đơn");
+                }
+            }    
+            else
+            {
+                if (MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này không?", "Stop", MessageBoxButton.YesNo, MessageBoxImage.Stop) == MessageBoxResult.Yes)
+                {
+                    if (busEmployee.delEmployee(emp.EmployeeID))
+                    {
+                        MessageBox.Show("Xóa thành công");
+                        updateEmployee();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đã có lỗi xảy ra, xóa không thành công");
+                    }
+                }
+
+            }
         }
     }
 }

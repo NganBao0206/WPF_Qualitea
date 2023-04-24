@@ -55,7 +55,7 @@ namespace BUS
         public int authentication(String username, String password)
         {
             Employee e = getEmployeeByUsername(username);
-            if (e != null && PasswordManager.VerifyPassword(password, e.Password))
+            if (e != null && PasswordManager.VerifyPassword(password, e.Password) && e.IsEmployed)
             {
                 CurrentLogin.Instance.LoginID = e.EmployeeID;
 
@@ -92,5 +92,11 @@ namespace BUS
                 _isEmp = isEmployeed == true ? true : false;
             return de.getEmployees(keyword, dob, StartDate, _isEmp);
         }
+
+        public bool delEmployee(int employeeID)
+        {
+            return de.delEmployee(employeeID);
+        }
+
     }
 }

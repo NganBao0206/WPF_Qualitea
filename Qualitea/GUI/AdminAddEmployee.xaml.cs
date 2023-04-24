@@ -169,11 +169,11 @@ namespace GUI
             bool flag = true;
             if (
                 txtName.Text == employee.Name &&
-                dpkrDOB.SelectedDate == employee.DOB &&
+                dpkrDOB.SelectedDate.Value == employee.DOB &&
                 txtEmail.Text == employee.Email &&
                 (int)comboBoxRole.SelectedValue == employee.Role.RoleID &&
-                dpkrStart.SelectedDate == employee.StartDate &&
-                isEnd.IsChecked == false && !employee.IsEmployed &&
+                dpkrStart.SelectedDate.Value == employee.StartDate &&
+                ((isEnd.IsChecked == false && employee.IsEmployed) || (isEnd.IsChecked == true && !employee.IsEmployed)) &&
                 txtUsername.Text == employee.Username &&
                 txtPass.Password == employee.Password &&
                 txtConfirm.Password == employee.Password
@@ -198,11 +198,6 @@ namespace GUI
                 boxEmail.BorderBrush = Brushes.Red;
             }
             if (dpkrStart.SelectedDate == null)
-            {
-                flag = false;
-                boxStart.BorderBrush = Brushes.Red;
-            }
-            if (isEnd.IsChecked == true)
             {
                 flag = false;
                 boxStart.BorderBrush = Brushes.Red;
@@ -233,6 +228,8 @@ namespace GUI
                 emp.RoleID = (int)comboBoxRole.SelectedValue;
                 emp.Username = txtUsername.Text;
                 emp.Password = txtPass.Password;
+                emp.StartDate = dpkrStart.SelectedDate.Value;
+                emp.IsEmployed = isEnd.IsChecked == true ? false : true;
                 if (be.editEmployee(emp))
                 {
                     MessageBox.Show("Chỉnh sửa thành công");

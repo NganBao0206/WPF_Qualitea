@@ -102,6 +102,7 @@ namespace DAO
                         {
                             po.Size = productOption.Size;
                             po.Price = productOption.Price;
+                            po.IsActive = productOption.IsActive;
                             product.ProductOptions.Remove(productOption);
                         }
                         else

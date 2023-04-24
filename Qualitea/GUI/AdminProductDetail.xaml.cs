@@ -214,83 +214,86 @@ namespace GUI
 
         private void editPrd_Click(object sender, RoutedEventArgs e)
         {
-            string mess = "";
-            if (myList.Items.Count + myListOption.Items.Count > 0)
+            if (MessageBox.Show("Bạn có chắc chắn muốn sửa sản phẩm này không?", "Stop", MessageBoxButton.YesNo, MessageBoxImage.Stop) == MessageBoxResult.Yes)
             {
-                if (imageProduct.Source == null)
+                string mess = "";
+                if (myList.Items.Count + myListOption.Items.Count > 0)
                 {
-                    uploadButton.BorderBrush = Brushes.Red;
-                    mess += "Chưa thêm ảnh sản phẩm";
-                    MessageBox.Show(mess);
-                    return;
-                } //Kiểm tra ảnh
-
-                if (namePrd.Text == "")
-                {
-                    boxNamePrd.BorderBrush = Brushes.Red;
-                    mess += "Chưa nhập tên sản phẩm\n";
-                    MessageBox.Show(mess);
-                    return;
-                } //Kiểm tra tên
-                if (comboBoxCate.SelectedItem == null)
-                {
-                    comboBoxCate.Style = (Style)FindResource("ComboBoxStyle2");
-                    mess += "Chưa chọn loại sản phẩm\n";
-                    MessageBox.Show(mess);
-                    return;
-                } //Kiểm tra loại
-
-                for (int i = 0; i < productOptions.Count; i++)
-                {
-                    ProductOption po = productOptions[i];
-                    if (String.IsNullOrEmpty(po.Size))
+                    if (imageProduct.Source == null)
                     {
-                        MessageBox.Show("Vui lòng điền đủ thông tin về kích thước");
+                        uploadButton.BorderBrush = Brushes.Red;
+                        mess += "Chưa thêm ảnh sản phẩm";
+                        MessageBox.Show(mess);
                         return;
-                    }
-                    if (po.Price <= 0)
-                    {
-                        MessageBox.Show("Giá tiền phải lớn hơn 0");
-                        return;
-                    }
-                } //Kiểm tra các size và giá tiền mới
-                if (imagePath != "")
-                    _product.Image = imagePath;
+                    } //Kiểm tra ảnh
 
-                if (busProduct.editProduct(_product, productOptions.ToList()))
-                {
-                    MessageBox.Show("Sửa thành công");
-                    busProduct = new BUS_Product();
-                    product = busProduct.getProduct(product);
-                    productOptions.Clear();
-
-                    init();
-                    CollectionViewSource.GetDefaultView(myList.ItemsSource).Refresh();
-                    myList.UpdateLayout();
-                }
-                else
-                    MessageBox.Show("Đã có lỗi xảy ra không thể sửa");
-            } else
-            {
-                if (MessageBox.Show("Sản phẩm không thể không có thông tin về size, bạn có muốn xóa sản phẩm này không?", "Stop", MessageBoxButton.YesNo, MessageBoxImage.Stop) == MessageBoxResult.Yes)
-                {
-                    if (busOrder.GetOrderDetailsByProductID(_product.ProductID).Count > 0)
+                    if (namePrd.Text == "")
                     {
-                        MessageBox.Show("Sản phẩm này đã được bán không thể xóa, bạn chỉ có thể xóa sản phẩm chưa bán được");
+                        boxNamePrd.BorderBrush = Brushes.Red;
+                        mess += "Chưa nhập tên sản phẩm\n";
+                        MessageBox.Show(mess);
                         return;
-                    }
-                    if (busProduct.delProduct(_product))
+                    } //Kiểm tra tên
+                    if (comboBoxCate.SelectedItem == null)
                     {
-                        MessageBox.Show("Xóa thành công");
-                        this.Close();
+                        comboBoxCate.Style = (Style)FindResource("ComboBoxStyle2");
+                        mess += "Chưa chọn loại sản phẩm\n";
+                        MessageBox.Show(mess);
+                        return;
+                    } //Kiểm tra loại
+
+                    for (int i = 0; i < productOptions.Count; i++)
+                    {
+                        ProductOption po = productOptions[i];
+                        if (String.IsNullOrEmpty(po.Size))
+                        {
+                            MessageBox.Show("Vui lòng điền đủ thông tin về kích thước");
+                            return;
+                        }
+                        if (po.Price <= 0)
+                        {
+                            MessageBox.Show("Giá tiền phải lớn hơn 0");
+                            return;
+                        }
+                    } //Kiểm tra các size và giá tiền mới
+                    if (imagePath != "")
+                        _product.Image = imagePath;
+
+                    if (busProduct.editProduct(_product, productOptions.ToList()))
+                    {
+                        MessageBox.Show("Sửa thành công");
+                        busProduct = new BUS_Product();
+                        product = busProduct.getProduct(product);
+                        productOptions.Clear();
+
+                        init();
+                        CollectionViewSource.GetDefaultView(myList.ItemsSource).Refresh();
+                        myList.UpdateLayout();
                     }
                     else
+                        MessageBox.Show("Đã có lỗi xảy ra không thể sửa");
+                }
+                else
+                {
+                    if (MessageBox.Show("Sản phẩm không thể không có thông tin về size, bạn có muốn xóa sản phẩm này không?", "Stop", MessageBoxButton.YesNo, MessageBoxImage.Stop) == MessageBoxResult.Yes)
                     {
-                        MessageBox.Show("Đã có lỗi xảy ra, xóa không thành công");
+                        if (busOrder.GetOrderDetailsByProductID(_product.ProductID).Count > 0)
+                        {
+                            MessageBox.Show("Sản phẩm này đã được bán không thể xóa, bạn chỉ có thể xóa sản phẩm chưa bán được");
+                            return;
+                        }
+                        if (busProduct.delProduct(_product))
+                        {
+                            MessageBox.Show("Xóa thành công");
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Đã có lỗi xảy ra, xóa không thành công");
+                        }
                     }
                 }
             }
-            
         }
 
         private void options_Checked(object sender, RoutedEventArgs e)
@@ -373,20 +376,24 @@ namespace GUI
 
         private void delPrd_Click(object sender, RoutedEventArgs e)
         {
-            if (busOrder.GetOrderDetailsByProductID(_product.ProductID).Count > 0)
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa sản phẩm này không?", "Stop", MessageBoxButton.YesNo, MessageBoxImage.Stop) == MessageBoxResult.Yes)
             {
-                MessageBox.Show("Sản phẩm này đã được bán không thể xóa, bạn chỉ có thể xóa sản phẩm chưa bán được");
-                return;
-            }    
-            if (busProduct.delProduct(_product))
-            {
-                MessageBox.Show("Xóa thành công");
-                this.Close();
+                if (busOrder.GetOrderDetailsByProductID(_product.ProductID).Count > 0)
+                {
+                    MessageBox.Show("Sản phẩm này đã được bán không thể xóa, bạn chỉ có thể xóa sản phẩm chưa bán được");
+                    return;
+                }
+                if (busProduct.delProduct(_product))
+                {
+                    MessageBox.Show("Xóa thành công");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Đã có lỗi xảy ra, xóa không thành công");
+                }
             }
-            else
-            {
-                MessageBox.Show("Đã có lỗi xảy ra, xóa không thành công");
-            }
+                
         }
     }
 }

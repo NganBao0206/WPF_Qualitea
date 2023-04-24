@@ -163,8 +163,9 @@ namespace GUI
                     if (bc.addCustomer(newCustomer))
                     {
                         MessageBox.Show("Đăng ký thành công", "Thông báo",MessageBoxButton.OK, MessageBoxImage.Information);
-                        this.Close();
-
+                        Login l = new Login();
+                        this.Close();                        
+                        l.Show();
                     }
                 }
                 else

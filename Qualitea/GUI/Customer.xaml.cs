@@ -404,6 +404,11 @@ namespace GUI
 
         private void confirmBill(object sender, MouseButtonEventArgs e)
         {
+            if (DateTime.Now.Hour > 21 || DateTime.Now.Hour < 7)
+            {
+                MessageBox.Show("Thời gian hoạt động bắt đầu từ 7:00 tới 21:59, bạn không thể đặt hóa đơn ngoài giờ", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             if (!String.IsNullOrEmpty(receiverName.Text) && !String.IsNullOrEmpty(receiverAddress.Text) && !String.IsNullOrEmpty(receiverPhone.Text))
             {
                 if (MessageBox.Show("Bạn có chắc chắn muốn xác nhận đơn hàng này không", "Xác nhận đơn hàng", MessageBoxButton.YesNo, MessageBoxImage.None) == MessageBoxResult.Yes)

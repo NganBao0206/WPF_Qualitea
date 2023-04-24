@@ -1,5 +1,5 @@
 ﻿<Window x:Name="Window" x:Class="GUI.AdminAddEmployee" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:GUI" mc:Ignorable="d" Title="Admin" Height="650
-        " Width="1000" WindowStyle="None" Visibility="Visible" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{x:Null}" AllowsTransparency="True" Loaded="Window_Loaded">
+        " Width="1000" WindowStyle="None" Visibility="Visible" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{x:Null}" AllowsTransparency="True" Loaded="Window_Loaded" Icon="/asset/logo/greenline.ico">
     <Window.Resources>
 
         <Style x:Key="myFont" TargetType="Label">

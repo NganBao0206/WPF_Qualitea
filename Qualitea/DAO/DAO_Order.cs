@@ -332,7 +332,7 @@ namespace DAO
 
         public List<DateTimeSales> getSalesInYear(int Year)
         {
-            var months = Enumerable.Range(1, 13)
+            var months = Enumerable.Range(1, 12)
                 .Select(month => new DateTimeSales { Value = month, OnlineSales = 0, OfflineSales = 0 })
                 .ToList();
 

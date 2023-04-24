@@ -4,8 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
-        mc:Ignorable="d"
-        Title="Admin" Height="200" Width="500" WindowStyle="None" Visibility="Visible" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{x:Null}" AllowsTransparency="True">
+        mc:Ignorable="d" Icon="/asset/logo/greenline.ico" Title="Admin" Height="200" Width="500" WindowStyle="None" Visibility="Visible" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{x:Null}" AllowsTransparency="True">
     <Window.Resources>
 
         <Style x:Key="myFont" TargetType="Label">

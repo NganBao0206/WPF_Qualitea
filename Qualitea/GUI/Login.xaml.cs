@@ -105,7 +105,7 @@ namespace GUI
                     else
                     {
                         txtAlert.Visibility = Visibility.Visible;
-                        MessageBox.Show("Tài khoản hoặc mật khẩu không đúng");
+                        MessageBox.Show("Tài khoản không hợp lệ");
                     }
 
                 }

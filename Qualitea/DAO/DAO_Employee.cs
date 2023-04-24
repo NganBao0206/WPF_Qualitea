@@ -35,6 +35,8 @@ namespace DAO
                     e.RoleID = emp.RoleID;
                     e.Username = emp.Username;
                     e.Password = emp.Password;
+                    e.StartDate = emp.StartDate;
+                    e.IsEmployed = emp.IsEmployed;
                     context.ChangeTracker.DetectChanges(); //Phát hiện những thay đổi
                     int result = context.SaveChanges();
                     context.Configuration.AutoDetectChangesEnabled = true;
@@ -80,6 +82,33 @@ namespace DAO
             if (isEmployeed != null)
                 employees = employees.Where(e => e.IsEmployed == isEmployeed).ToList();
             return employees;
+        }
+
+        public bool delEmployee(int employeeID)
+        {
+            using (var transaction = context.Database.BeginTransaction())
+            {
+                try
+                {
+                    context.Configuration.AutoDetectChangesEnabled = false;
+                    Employee emp = context.Employees.Find(employeeID);
+                    context.Employees.Remove(emp);
+
+                    context.ChangeTracker.DetectChanges();
+                    int result = context.SaveChanges();
+                    context.Configuration.AutoDetectChangesEnabled = true;
+
+                    transaction.Commit();
+
+                    return result > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    transaction.Rollback();
+                    return false;
+                }
+            }
         }
 
     }
