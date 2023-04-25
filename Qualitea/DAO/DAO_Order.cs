@@ -62,7 +62,7 @@ namespace DAO
                     Customer c = entities.Customers.Find(userID);
 
                     int newScore = (int)Math.Round(Total - DiscountTotal);
-                    c.Score += newScore - ScoreApply;
+                    c.Score -= ScoreApply;
                     entities.OrderHeaders.Add(newOrder);
 
                     List<OrderDetail> ods = new List<OrderDetail>();
@@ -424,6 +424,12 @@ namespace DAO
         public bool confirmOrder(OrderHeader orderHeader, int StaffID)
         {
             OrderHeader oh = entities.OrderHeaders.Find(orderHeader.OrderHeaderID);
+            if (oh.Status == 0)
+            {
+                DTO.Customer c = entities.Customers.Find(oh.CustomerID);
+                int newScore = (int)Math.Round(oh.Total - oh.DiscountTotal);
+                c.Score += newScore;
+            }
             oh.Status = 1;
             oh.EmployeeID = StaffID;
             return entities.SaveChanges() > 0;
@@ -453,9 +459,9 @@ namespace DAO
                         return false;
                     if (o.CustomerID != null)
                     {
-                        int score = (int)Math.Round(o.Total - o.DiscountTotal);
+                        int score = (int)Math.Round(o.DiscountTotal);
                         DTO.Customer c = entities.Customers.Find(o.CustomerID);
-                        c.Score -= score;
+                        c.Score += score;
                     }
 
                     entities.OrderHeaders.Remove(o);

@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\
 GUI
 none
 false
 DEBUG;TRACE
-D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\App.xaml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\App.xaml
 21-1637870538
 
 17-206065048
-35-82231227
+35-459827292
 Admin.xaml;AdminAddCategory.xaml;AdminAddEmployee.xaml;AdminAddProduct.xaml;AdminEditCategory.xaml;AdminProductDetail.xaml;Customer.xaml;EmployeeCheckBill.xaml;EmployeeHome.xaml;EmployeeOrder.xaml;EmployeeResources\MyButton.xaml;EmployeeResources\Style.xaml;Login.xaml;myControlsCustom\ComboBox.xaml;myControlsCustom\controlsResource.xaml;myControlsCustom\DatePicker.xaml;myControlsCustom\DatePickerNew.xaml;myControlsCustom\listView.xaml;myControlsCustom\RadioButton.xaml;myControlsCustom\Scroll.xaml;Register.xaml;
 
 True

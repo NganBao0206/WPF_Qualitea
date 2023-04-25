@@ -347,6 +347,12 @@ namespace GUI
 
         private void showCart(object sender, MouseButtonEventArgs e)
         {
+            busCustomer = new BUS_Customer();
+            userOrder.ItemsSource = busOrder.GetOrderHeadersByCustomerID(CurrentLogin.Instance.LoginID);
+            customer = busCustomer.getCustomerByID(CurrentLogin.Instance.LoginID);
+            userSCore.DataContext = customer;
+            card.DataContext = customer;
+            initScoreApply();
             tabCart.Visibility = Visibility.Visible;
         }
 
@@ -570,6 +576,21 @@ namespace GUI
             {
                 MessageBox.Show("Bạn chỉ được hủy đơn chưa được xác nhận");
             }
+        }
+
+        private void reloadBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            busOrder = new BUS_Order();
+            if (mainOrder.DataContext != null)
+            {
+                OrderHeader o = mainOrder.DataContext as OrderHeader;
+                mainOrder.DataContext = busOrder.GetOrderHeadersByID(o.OrderHeaderID);
+            }
+            busCustomer = new BUS_Customer();
+            userOrder.ItemsSource = busOrder.GetOrderHeadersByCustomerID(CurrentLogin.Instance.LoginID);
+            customer = busCustomer.getCustomerByID(CurrentLogin.Instance.LoginID);
+            userSCore.DataContext = customer;
+            card.DataContext = customer;
         }
     }
 }

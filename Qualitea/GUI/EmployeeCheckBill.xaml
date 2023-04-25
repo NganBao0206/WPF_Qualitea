@@ -223,14 +223,14 @@
                                                     <TextBlock Text="{Binding Path=CustomerName}" Style="{StaticResource myFont}" FontSize="14"/>
                                                 </StackPanel>
                                             </Border>
-                                            <Border Grid.Column="2" VerticalAlignment="Top">
-                                                <Button Style="{StaticResource GreenButton}" Height="50" Cursor="Hand" x:Name="btnConfirmOrder" Click="confirmOrder_Click">
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <TextBlock Text="Nhận đơn" FontSize="14" Foreground="#fff" Margin="5 0" VerticalAlignment="Center"/>
-                                                        <Image Source="asset/icons/check.png" Width="20"/>
-                                                    </StackPanel>
-                                                </Button>
-                                            </Border>
+
+                                            <Button Grid.Column="2" VerticalAlignment="Top" Style="{StaticResource GreenButton}" Height="50" Cursor="Hand" x:Name="btnConfirmOrder" Click="confirmOrder_Click">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="Nhận đơn" FontSize="14" Foreground="#fff" Margin="5 0" VerticalAlignment="Center"/>
+                                                    <Image Source="asset/icons/check.png" Width="20"/>
+                                                </StackPanel>
+                                            </Button>
+
                                             <Border Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="10">
                                                 <Grid>
                                                     <Grid.RowDefinitions>
@@ -278,7 +278,7 @@
                                             </Border>
                                             <TextBlock Grid.Row="3" Text="Trạng thái hóa đơn: " VerticalAlignment="Center" Style="{StaticResource darkFont}"/>
                                             <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding StatusString}" VerticalAlignment="Center" Style="{StaticResource darkFont}"/>
-                                            
+
                                         </Grid>
                                     </Border>
                                 </DataTemplate>
@@ -303,7 +303,7 @@
                     </Button.Background>
                 </Button>
             </Border>
-            
+
             <Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Background="#555" Margin="1 0"/>
             <Border Grid.Column="3" Grid.Row="1">
                 <StackPanel Margin="30 0 0 0" Orientation="Horizontal">

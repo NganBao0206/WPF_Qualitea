@@ -32,3 +32,20 @@ D:\Personal Folder\Desktop\adminqt\Qualitea\DAO\obj\Debug\DAO.csproj.CoreCompile
 D:\Personal Folder\Desktop\adminqt\Qualitea\DAO\obj\Debug\DAO.csproj.CopyComplete
 D:\Personal Folder\Desktop\adminqt\Qualitea\DAO\obj\Debug\DAO.dll
 D:\Personal Folder\Desktop\adminqt\Qualitea\DAO\obj\Debug\DAO.pdb
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DAO\bin\Debug\DAO.dll.config
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DAO\bin\Debug\DAO.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DAO\bin\Debug\DAO.pdb
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DAO\bin\Debug\DTO.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DAO\bin\Debug\EntityFramework.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DAO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DAO\bin\Debug\DTO.pdb
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DAO\bin\Debug\DTO.dll.config
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DAO\bin\Debug\EntityFramework.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DAO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DAO\obj\Debug\DAO.Migrations.qualitea.resources
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DAO\obj\Debug\DAO.csproj.GenerateResource.cache
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DAO\obj\Debug\DAO.csproj.CopyComplete
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DAO\obj\Debug\DAO.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DAO\obj\Debug\DAO.pdb

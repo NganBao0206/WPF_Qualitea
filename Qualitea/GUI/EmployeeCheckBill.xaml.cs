@@ -35,7 +35,7 @@ namespace GUI
             if (unConfirmedOrders.Count > 0)
                 ShowAnnounce.Visibility = Visibility.Visible;
             DispatcherTimer timer = new DispatcherTimer(DispatcherPriority.Background);
-            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Interval = TimeSpan.FromSeconds(30);
             timer.IsEnabled = true;
             timer.Tick += (s, e) =>
             {
@@ -147,6 +147,10 @@ namespace GUI
             if (MessageBox.Show("Bạn có chắc chắn muốn xác nhận đơn hàng này không", "Xác nhận đơn hàng", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes) {
                 Button btnConfirm = (Button)sender;
                 OrderHeader oh = btnConfirm.DataContext as OrderHeader;
+                if (oh == null)
+                {
+                    return;
+                }
                 if (busOrder.confirmOrder(oh, CurrentLogin.Instance.LoginID))
                 {
                     loadOrder();
