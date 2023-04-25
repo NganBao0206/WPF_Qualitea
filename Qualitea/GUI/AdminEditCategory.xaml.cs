@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -41,6 +43,14 @@ namespace GUI
 
         private void edit(object sender, RoutedEventArgs e)
         {
+            TextInfo textInfo = new CultureInfo("vi-VN", false).TextInfo;
+            if (String.IsNullOrWhiteSpace(cateName.Text) || !Regex.IsMatch(cateName.Text, @"[\p{L}\s]+$"))
+            {
+                MessageBox.Show("Tên không đúng định dạng");
+                return;
+            }
+            cateName.Text = textInfo.ToTitleCase(cateName.Text.Trim().Replace(@"\s+", " ").ToLower());
+           
             int id = int.Parse(cateID.Text);
             string name = cateName.Text;
             if (bc.editCategory(id, name))

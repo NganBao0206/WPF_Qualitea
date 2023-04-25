@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,7 +28,7 @@ namespace GUI
     public partial class AdminAddEmployee : Window
     {
         public Employee employee;
-        private SolidColorBrush dark = new SolidColorBrush(Color.FromRgb(67,73,72));
+        private SolidColorBrush dark = new SolidColorBrush(Color.FromRgb(67, 73, 72));
         private BUS_Role br = new BUS_Role();
         private BUS_Employee be = new BUS_Employee();
         public AdminAddEmployee()
@@ -76,69 +79,111 @@ namespace GUI
             else
             {
                 boxStart.BorderBrush = dark;
-            }    
-                
+            }
+
         }
-
-       
-
-        
-      
 
         private void addEmployee_Click(object sender, RoutedEventArgs e)
         {
-            bool flag = true;
-            if (txtName.Text == "")
+
+            if (String.IsNullOrWhiteSpace(txtName.Text) || !Regex.IsMatch(txtName.Text, @"[\p{L}\s]+$"))
             {
-                flag = false;
                 boxName.BorderBrush = Brushes.Red;
+                MessageBox.Show("Tên không đúng định dạng");
+                return;
             }
+            else
+            {
+                boxName.BorderBrush = dark;
+            }
+            txtName.Text = validString(txtName.Text);
+
+            if (String.IsNullOrWhiteSpace(txtEmail.Text) || !isValidEmail(txtEmail.Text))
+            {
+                boxEmail.BorderBrush = Brushes.Red;
+                MessageBox.Show("Email không đúng định dạng");
+                return;
+            }
+            else
+            {
+                boxEmail.BorderBrush = dark;
+            }
+            txtEmail.Text = txtEmail.Text.ToLower();
+
+            if (String.IsNullOrWhiteSpace(txtUsername.Text) || !Regex.IsMatch(txtUsername.Text, @"[a-zA-Z0-9.]+$"))
+            {
+                boxUsername.BorderBrush = Brushes.Red;
+                MessageBox.Show("Username chỉ được chứa chữ, số, dấu chấm");
+                return;
+            }
+            else
+            {
+                boxUsername.BorderBrush = dark;
+            }
+            txtUsername.Text = txtUsername.Text.ToLower();
+
             if (dpkrDOB.SelectedDate == null)
             {
-                flag = false;
                 boxDOB.BorderBrush = Brushes.Red;
+                MessageBox.Show("Vui lòng nhập ngày sinh");
+                return;
             }
-            if (txtEmail.Text == "")
+            else
             {
-                flag = false;
-                boxEmail.BorderBrush = Brushes.Red;
-            }    
+                boxDOB.BorderBrush = dark;
+            }
+
             if (dpkrStart.SelectedDate == null)
             {
-                flag = false;
                 boxStart.BorderBrush = Brushes.Red;
-            }    
+                MessageBox.Show("Vui lòng nhập ngày bắt đầu làm");
+                return;
+            }
+            else
+            {
+                boxStart.BorderBrush = dark;
+            }
+
             if (isEnd.IsChecked == true)
             {
-                flag = false;
-                boxStart.BorderBrush = Brushes.Red;
-            }    
+                MessageBox.Show("Không thể thêm nhân viên đã nghỉ");
+                return;
+            }
+
             if (comboBoxRole.SelectedValue == null)
             {
-                flag = false;
                 comboBoxRole.Style = (Style)FindResource("ComboBoxStyle2");
-            }    
-            if (txtUsername.Text == "")
+                MessageBox.Show("Vui lòng chọn chức vụ");
+                return;
+            }
+            else
             {
-                flag = false;
-                boxUsername.BorderBrush = Brushes.Red;
-            }    
-            if (txtPass.Password == "" || (txtConfirm.Password != txtPass.Password))
+                comboBoxRole.Style = (Style)FindResource("ComboBoxStyle1");
+            }
+
+            if (String.IsNullOrWhiteSpace(txtPass.Password) || (txtConfirm.Password != txtPass.Password))
             {
-                flag = false; 
                 boxPass.BorderBrush = Brushes.Red;
                 boxConfirm.BorderBrush = Brushes.Red;
+                MessageBox.Show("Mật khẩu và mật khẩu xác nhận chưa hợp lệ");
+                return;
             }
-            if (flag)
+            else
             {
-                Employee emp = new Employee();
-                emp.Name = txtName.Text;
-                emp.DOB = dpkrDOB.SelectedDate.Value;
-                emp.Email = txtEmail.Text;
-                emp.StartDate = dpkrStart.SelectedDate.Value;
-                emp.RoleID = (int) comboBoxRole.SelectedValue;
-                emp.Username = txtUsername.Text;
-                emp.Password = txtPass.Password;
+                boxPass.BorderBrush = dark;
+                boxConfirm.BorderBrush = dark;
+            }
+
+            Employee emp = new Employee();
+            emp.Name = txtName.Text;
+            emp.DOB = dpkrDOB.SelectedDate.Value;
+            emp.Email = txtEmail.Text;
+            emp.StartDate = dpkrStart.SelectedDate.Value;
+            emp.RoleID = (int)comboBoxRole.SelectedValue;
+            emp.Username = txtUsername.Text;
+            emp.Password = txtPass.Password;
+            if (MessageBox.Show("Bạn có chắc chắn muốn thêm nhân viên này không?", "Stop", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
                 if (be.addEmployee(emp))
                 {
                     MessageBox.Show("Thêm thành công");
@@ -158,15 +203,119 @@ namespace GUI
                     txtUsername.Text = "";
                     txtPass.Password = "";
                     txtConfirm.Password = "";
-                }    
+                }
+                else
+                {
+                    MessageBox.Show("Thêm không thành công");
+                }
             }
-            else
-                MessageBox.Show("Vui lòng nhập đầy đủ");
+        }
+
+        private String validString(String txt)
+        {
+            TextInfo textInfo = new CultureInfo("vi-VN", false).TextInfo;
+            return textInfo.ToTitleCase(txt.Trim().Replace(@"\s+", " ").ToLower());
+        }
+
+        public bool isValidEmail(string emailaddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
         }
 
         private void editEmployee_Click(object sender, RoutedEventArgs e)
         {
-            bool flag = true;
+            if (String.IsNullOrWhiteSpace(txtName.Text) || !Regex.IsMatch(txtName.Text, @"[\p{L}\s]+$"))
+            {
+                boxName.BorderBrush = Brushes.Red;
+                MessageBox.Show("Tên không đúng định dạng");
+                return;
+            }
+            else
+            {
+                boxName.BorderBrush = dark;
+            }
+            txtName.Text = validString(txtName.Text);
+
+            if (String.IsNullOrWhiteSpace(txtEmail.Text) || !isValidEmail(txtEmail.Text))
+            {
+                boxEmail.BorderBrush = Brushes.Red;
+                MessageBox.Show("Email không đúng định dạng");
+                return;
+            }
+            else
+            {
+                boxEmail.BorderBrush = dark;
+            }
+            txtEmail.Text = txtEmail.Text.ToLower();
+
+            if (String.IsNullOrWhiteSpace(txtUsername.Text) || !Regex.IsMatch(txtUsername.Text, @"[a-zA-Z0-9.]+$"))
+            {
+                boxUsername.BorderBrush = Brushes.Red;
+                MessageBox.Show("Username chỉ chứa chữ, số, dấu chấm");
+                return;
+            }
+            else
+            {
+                boxUsername.BorderBrush = dark;
+            }
+            txtUsername.Text = txtUsername.Text.ToLower();
+
+            if (dpkrDOB.SelectedDate == null)
+            {
+                boxDOB.BorderBrush = Brushes.Red;
+                MessageBox.Show("Vui lòng nhập ngày sinh");
+                return;
+            }
+            else
+            {
+                boxDOB.BorderBrush = dark;
+            }
+
+            if (dpkrStart.SelectedDate == null)
+            {
+                boxStart.BorderBrush = Brushes.Red;
+                MessageBox.Show("Vui lòng nhập ngày bắt đầu làm");
+                return;
+            }
+            else
+            {
+                boxStart.BorderBrush = dark;
+            }
+
+            if (comboBoxRole.SelectedValue == null)
+            {
+                comboBoxRole.Style = (Style)FindResource("ComboBoxStyle2");
+                MessageBox.Show("Vui lòng chọn chức vụ");
+                return;
+            }
+            else
+            {
+                comboBoxRole.Style = (Style)FindResource("ComboBoxStyle1");
+            }
+
+            if (String.IsNullOrWhiteSpace(txtPass.Password) || (txtConfirm.Password != txtPass.Password))
+            {
+                boxPass.BorderBrush = Brushes.Red;
+                boxConfirm.BorderBrush = Brushes.Red;
+                MessageBox.Show("Mật khẩu và mật khẩu xác nhận chưa hợp lệ");
+                return;
+            }
+            else
+            {
+                boxPass.BorderBrush = dark;
+                boxConfirm.BorderBrush = dark;
+            }
+
+
             if (
                 txtName.Text == employee.Name &&
                 dpkrDOB.SelectedDate.Value == employee.DOB &&
@@ -182,54 +331,19 @@ namespace GUI
                 MessageBox.Show("Không có gì thay đổi");
                 return;
             }
-            if (txtName.Text == "")
+
+            Employee emp = new Employee();
+            emp.EmployeeID = int.Parse(txtID.Text);
+            emp.Name = txtName.Text;
+            emp.DOB = dpkrDOB.SelectedDate.Value;
+            emp.Email = txtEmail.Text;
+            emp.RoleID = (int)comboBoxRole.SelectedValue;
+            emp.Username = txtUsername.Text;
+            emp.Password = txtPass.Password;
+            emp.StartDate = dpkrStart.SelectedDate.Value;
+            emp.IsEmployed = isEnd.IsChecked == true ? false : true;
+            if (MessageBox.Show("Bạn có chắc chắn muốn sửa nhân viên này không?", "Stop", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                flag = false;
-                boxName.BorderBrush = Brushes.Red;
-            }
-            if (dpkrDOB.SelectedDate == null)
-            {
-                flag = false;
-                boxDOB.BorderBrush = Brushes.Red;
-            }
-            if (txtEmail.Text == "")
-            {
-                flag = false;
-                boxEmail.BorderBrush = Brushes.Red;
-            }
-            if (dpkrStart.SelectedDate == null)
-            {
-                flag = false;
-                boxStart.BorderBrush = Brushes.Red;
-            }
-            if (comboBoxRole.SelectedValue == null)
-            {
-                flag = false;
-                comboBoxRole.Style = (Style)FindResource("ComboBoxStyle2");
-            }
-            if (txtUsername.Text == "")
-            {
-                flag = false;
-                boxUsername.BorderBrush = Brushes.Red;
-            }
-            if (txtPass.Password == "" || (txtConfirm.Password != txtPass.Password))
-            {
-                flag = false;
-                boxPass.BorderBrush = Brushes.Red;
-                boxConfirm.BorderBrush = Brushes.Red;
-            }
-            if (flag)
-            {
-                Employee emp = new Employee();
-                emp.EmployeeID = int.Parse(txtID.Text);
-                emp.Name = txtName.Text;
-                emp.DOB = dpkrDOB.SelectedDate.Value;
-                emp.Email = txtEmail.Text;
-                emp.RoleID = (int)comboBoxRole.SelectedValue;
-                emp.Username = txtUsername.Text;
-                emp.Password = txtPass.Password;
-                emp.StartDate = dpkrStart.SelectedDate.Value;
-                emp.IsEmployed = isEnd.IsChecked == true ? false : true;
                 if (be.editEmployee(emp))
                 {
                     MessageBox.Show("Chỉnh sửa thành công");
@@ -257,11 +371,13 @@ namespace GUI
                     txtConfirm.Password = employee.Password;
                     txtID.Text = employee.EmployeeID.ToString();
                 }
+                else
+                {
+                    MessageBox.Show("Sửa không thành công");
+                }
             }
-            else
-                MessageBox.Show("Vui lòng nhập đầy đủ");
-        }
 
-        
+        }
     }
+
 }

@@ -144,15 +144,17 @@ namespace GUI
 
         private void confirmOrder_Click(object sender, RoutedEventArgs e)
         {
-            Button btnConfirm = (Button)sender;
-            OrderHeader oh = btnConfirm.DataContext as OrderHeader;
-            if (busOrder.confirmOrder(oh, CurrentLogin.Instance.LoginID))
-            {
-                loadOrder();
-                listOrderByCustomer.ItemsSource = busOrder.getUnconfimredOrders();
+            if (MessageBox.Show("Bạn có chắc chắn muốn xác nhận đơn hàng này không", "Xác nhận đơn hàng", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes) {
+                Button btnConfirm = (Button)sender;
+                OrderHeader oh = btnConfirm.DataContext as OrderHeader;
+                if (busOrder.confirmOrder(oh, CurrentLogin.Instance.LoginID))
+                {
+                    loadOrder();
+                    listOrderByCustomer.ItemsSource = busOrder.getUnconfimredOrders();
+                }
+                else
+                    MessageBox.Show("Đã có lỗi xảy ra");
             }
-            else
-                MessageBox.Show("Đã có lỗi xảy ra");
         }
     }
 }

@@ -134,6 +134,7 @@
                             </Border>
                             <Button x:Name="btnContinue" Content="Tiếp tục" Style="{StaticResource SignInButton}" Click="btnContinue_Click"/>
                             <TextBlock x:Name="txtAlert1"  Text="* Vui lòng điền đầy đủ thông tin còn trống *" Foreground="Red" FontStyle="Italic" Margin="0 10 0 0" TextAlignment="Center" Visibility="Collapsed"/>
+                            <TextBlock x:Name="txtAlert4" Text="* Thông tin tên hoặc email sai định dạng *" Foreground="Red" FontStyle="Italic" Margin="0 10 0 0" TextAlignment="Center" Visibility="Collapsed" />
                         </StackPanel>
                         <StackPanel x:Name="step2" Panel.ZIndex="0" Background="#fff">
                             <TextBlock Text="Create new account" Style="{StaticResource titleText}" Foreground="#FF53825E" />

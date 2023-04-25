@@ -18,6 +18,7 @@ using System.Text.RegularExpressions;
 using System.IO;
 using QRCoder;
 using QRCoder.Xaml;
+using System.Globalization;
 
 namespace GUI
 {
@@ -37,6 +38,7 @@ namespace GUI
         private BUS_Order busOrder;
         private BUS_Customer busCustomer;
         private DTO.Customer customer;
+
         bool isApply = false;
         int ScoreApply;
         public Customer()
@@ -51,7 +53,7 @@ namespace GUI
             init();
             initScoreApply();
 
-            
+
         }
 
         public void init()
@@ -74,7 +76,7 @@ namespace GUI
 
         public void initScoreApply()
         {
-            
+
             if (customer.Score == 0 || od.Count == 0)
             {
                 ScoreApply_Bar.IsEnabled = false;
@@ -272,7 +274,7 @@ namespace GUI
                 txtCash.Text = (total - discountTotal).ToString("N0") + "đ";
                 var view = CollectionViewSource.GetDefaultView(cart.ItemsSource);
                 view.Refresh();
-                
+
 
             }
             else
@@ -376,7 +378,7 @@ namespace GUI
                 MessageBox.Show("Vui lòng chọn sản phẩm để tiếp tục");
             }
         }
-        
+
         private void btnCancel_Click(object sender, MouseButtonEventArgs e)
         {
             if (od.Count > 0)
@@ -411,11 +413,27 @@ namespace GUI
             }
             if (!String.IsNullOrEmpty(receiverName.Text) && !String.IsNullOrEmpty(receiverAddress.Text) && !String.IsNullOrEmpty(receiverPhone.Text))
             {
+                TextInfo textInfo = new CultureInfo("vi-VN", false).TextInfo;
+                receiverName.Text = textInfo.ToTitleCase(receiverName.Text.Trim().Replace(@"\s+", " ").ToLower());
+                receiverAddress.Text = textInfo.ToTitleCase(receiverAddress.Text.Trim().Replace(@"\s+", " ").ToLower());
+                if (!Regex.IsMatch(receiverName.Text, @"[\p{L}\s]+$"))
+                {
+                    MessageBox.Show("Tên không đúng định dạng");
+                    return;
+                }
+                if (!Regex.IsMatch(receiverAddress.Text, @"[\p{L}0-9\s/]+$"))
+                {
+                    MessageBox.Show("Địa chỉ không đúng định dạng");
+                    return;
+                }
+                if (!(Regex.IsMatch(receiverPhone.Text, @"^\+?[0-9]+$") && ((receiverPhone.Text.Contains("+") && receiverPhone.Text.Length == 12) || (!receiverPhone.Text.Contains("+") && receiverPhone.Text.Length == 10))))
+                {
+                    MessageBox.Show("Số điện thoại không đúng định dạng");
+                    return;
+                }
                 if (MessageBox.Show("Bạn có chắc chắn muốn xác nhận đơn hàng này không", "Xác nhận đơn hàng", MessageBoxButton.YesNo, MessageBoxImage.None) == MessageBoxResult.Yes)
                 {
-                    
-                    
-                    int score = busOrder.addNewCusOrder(total, discountTotal, od.ToList(), CurrentLogin.Instance.LoginID, isApply? ScoreApply : 0, receiverName.Text, receiverAddress.Text, receiverPhone.Text);
+                    int score = busOrder.addNewCusOrder(total, discountTotal, od.ToList(), CurrentLogin.Instance.LoginID, isApply ? ScoreApply : 0, receiverName.Text, receiverAddress.Text, receiverPhone.Text);
                     if (score > 0)
                     {
                         receiverName.Text = "";
@@ -526,7 +544,7 @@ namespace GUI
             {
                 if (MessageBox.Show("Bạn có chắc chắn muốn hủy không?", "Stop", MessageBoxButton.YesNo, MessageBoxImage.Stop) == MessageBoxResult.Yes)
                 {
-                    
+
                     if (busOrder.cancelOrder(o.OrderHeaderID))
                     {
                         busOrder = new BUS_Order();
@@ -547,7 +565,7 @@ namespace GUI
                         userOrder.ItemsSource = busOrder.GetOrderHeadersByCustomerID(CurrentLogin.Instance.LoginID);
                     }
                 }
-            } 
+            }
             else
             {
                 MessageBox.Show("Bạn chỉ được hủy đơn chưa được xác nhận");

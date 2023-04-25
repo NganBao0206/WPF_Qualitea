@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -81,6 +83,8 @@ namespace GUI
 
         private void addPrd_Click(object sender, RoutedEventArgs e)
         {
+            TextInfo textInfo = new CultureInfo("vi-VN", false).TextInfo;
+
             string mess = "";
             if (imageProduct.Source == null)
             {
@@ -89,13 +93,15 @@ namespace GUI
                 MessageBox.Show(mess);
                 return;
             } //Kiểm tra ảnh
-            if (namePrd.Text == "")
+            if (String.IsNullOrWhiteSpace(namePrd.Text) || !Regex.IsMatch(namePrd.Text, @"[\p{L}\s]+$"))
             {
                 boxNamePrd.BorderBrush = Brushes.Red;
                 mess += "Chưa nhập tên sản phẩm\n";
                 MessageBox.Show(mess);
                 return;
             } //Kiểm tra tên
+            namePrd.Text = namePrd.Text.Trim().Replace(@"\s+", " ");
+
             if (comboBoxCate.SelectedItem == null)
             {
                 comboBoxCate.Style = (Style)FindResource("ComboBoxStyle2");
@@ -114,9 +120,14 @@ namespace GUI
             for (int i = 0; i < myList.Items.Count; i++)
             {
                 ProductOption po = myList.Items[i] as ProductOption;
-                if (String.IsNullOrEmpty(po.Size) || po.Price <= 0)
-                {
+                if (String.IsNullOrWhiteSpace(po.Size) || po.Price <= 0)
+                {                
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin về các size");
+                    return;
+                }
+                if (!Regex.IsMatch(po.Size, @"[a-zA-Z\s]+$"))
+                {
+                    MessageBox.Show("Tồn tại size không đúng định dạng");
                     return;
                 }
                 productOptions.Add(po);
@@ -141,7 +152,7 @@ namespace GUI
 
         private void namePrd_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (namePrd.Text != "")
+            if (!String.IsNullOrWhiteSpace(namePrd.Text) && Regex.IsMatch(namePrd.Text, @"[\p{L}\s]+$"))
                 boxNamePrd.BorderBrush = new SolidColorBrush(Color.FromRgb(67, 73, 72));
         }
 
@@ -155,7 +166,9 @@ namespace GUI
         private void price_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox thisPrice = (TextBox)sender;
-            if (thisPrice.Text != "") 
+            thisPrice.Text = thisPrice.Text.Replace(".", "");
+            thisPrice.CaretIndex = thisPrice.Text.Length;
+            if (!String.IsNullOrWhiteSpace(thisPrice.Text)) 
                 thisPrice.BorderBrush = new SolidColorBrush(Color.FromRgb(67, 73, 72));
         }
 

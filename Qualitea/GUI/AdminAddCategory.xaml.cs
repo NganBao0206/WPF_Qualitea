@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,6 +38,14 @@ namespace GUI
 
         private void addNew(object sender, RoutedEventArgs e)
         {
+            TextInfo textInfo = new CultureInfo("vi-VN", false).TextInfo;
+            if (String.IsNullOrWhiteSpace(txtName.Text) || !Regex.IsMatch(txtName.Text, @"[\p{L}\s]+$"))
+            {
+                MessageBox.Show("Tên không đúng định dạng");
+                return;
+            }
+            txtName.Text = textInfo.ToTitleCase(txtName.Text.Trim().Replace(@"\s+", " ").ToLower());
+
             if (bc.addNewCategory(txtName.Text))
             {
                 MessageBox.Show("Thêm thành công");

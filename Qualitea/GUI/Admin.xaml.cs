@@ -359,7 +359,9 @@ namespace GUI
             cw.ShowInTaskbar = false;
             cw.Owner = this;
             cw.ShowDialog();
-            comboBoxCategory.ItemsSource = busCategory.getCategories();
+            List<Category> categories = busCategory.getCategories();
+            categories.Add(new Category() { CategoryID = -1, Name = "Tất cả" });
+            comboBoxCategory.ItemsSource = categories;
         }
 
         private void delCates(object sender, RoutedEventArgs e)
@@ -374,6 +376,9 @@ namespace GUI
             {
                 MessageBox.Show(busCategory.delCategories(cates));
                 initCate();
+                List<Category> categories = busCategory.getCategories();
+                categories.Add(new Category() { CategoryID = -1, Name = "Tất cả" });
+                comboBoxCategory.ItemsSource = categories;
             }
         }
 
@@ -386,6 +391,9 @@ namespace GUI
             ew.ShowInTaskbar = false;
             ew.Owner = this;
             ew.ShowDialog();
+            List<Category> categories = busCategory.getCategories();
+            categories.Add(new Category() { CategoryID = -1, Name = "Tất cả" });
+            comboBoxCategory.ItemsSource = categories;
         }
 
         private void search(object sender, RoutedEventArgs e)
