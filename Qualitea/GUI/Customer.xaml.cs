@@ -63,7 +63,7 @@ namespace GUI
             userOrder.ItemsSource = busOrder.GetOrderHeadersByCustomerID(CurrentLogin.Instance.LoginID);
             customer = busCustomer.getCustomerByID(CurrentLogin.Instance.LoginID);
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode(customer.Score.ToString(), QRCodeGenerator.ECCLevel.H);
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(customer.CustomerID.ToString(), QRCodeGenerator.ECCLevel.H);
             XamlQRCode qrCode = new XamlQRCode(qrCodeData);
 
             DrawingImage qrCodeAsXaml = qrCode.GetGraphic(20, "#53825E", "transparent");
@@ -188,25 +188,25 @@ namespace GUI
             priceMainPrd.Text = prd.MinPrice.ToString("N0") + "đ";
         }
 
-        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
-        {
-            if (depObj != null)
-            {
-                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
-                {
-                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
-                    if (child != null && child is T)
-                    {
-                        yield return (T)child;
-                    }
+        //public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        //{
+        //    if (depObj != null)
+        //    {
+        //        for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+        //        {
+        //            DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+        //            if (child != null && child is T)
+        //            {
+        //                yield return (T)child;
+        //            }
 
-                    foreach (T childOfChild in FindVisualChildren<T>(child))
-                    {
-                        yield return childOfChild;
-                    }
-                }
-            }
-        }
+        //            foreach (T childOfChild in FindVisualChildren<T>(child))
+        //            {
+        //                yield return childOfChild;
+        //            }
+        //        }
+        //    }
+        //}
 
 
         private void minus_Click(object sender, RoutedEventArgs e)
@@ -244,6 +244,7 @@ namespace GUI
             {
 
                 bool flag = false;
+                //ktra san pham co trong gio hang
                 foreach (OrderDetail o in od)
                 {
                     if (o.ProductOptionID == poSelect.ProductOptionID)
@@ -454,7 +455,7 @@ namespace GUI
                         tabCart.Visibility = Visibility.Hidden;
                         Panel.SetZIndex(beforeChoose, 1);
                         mainProduct.DataContext = null;
-                        MessageBox.Show("Xác nhận đơn hàng thành công bạn, bạn được nhận thêm " + score.ToString() + " điểm tích lũy");
+                        MessageBox.Show("Xác nhận đơn hàng thành công bạn, bạn sẽ được nhận thêm " + score.ToString() + " điểm tích lũy sau khi nhận viên xác nhận đơn hàng");
                         txtTotal.Text = "0đ";
                         txtDiscount.Text = "0đ";
                         txtCash.Text = "0đ";

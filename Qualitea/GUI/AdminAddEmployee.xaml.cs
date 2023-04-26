@@ -130,8 +130,19 @@ namespace GUI
             }
             else
             {
-                boxDOB.BorderBrush = dark;
+                DateTime dob = dpkrDOB.SelectedDate.Value;
+                if (DateTime.Now.Year - dob.Year < 18)
+                {
+                    boxDOB.BorderBrush = Brushes.Red;
+                    MessageBox.Show("Nhân viên nhỏ hơn 18 tuổi không thể thêm");
+                    return;
+                }
+                else
+                {
+                    boxDOB.BorderBrush = dark;
+                }
             }
+
 
             if (dpkrStart.SelectedDate == null)
             {
@@ -141,8 +152,20 @@ namespace GUI
             }
             else
             {
-                boxStart.BorderBrush = dark;
+                DateTime dob = dpkrDOB.SelectedDate.Value;
+                DateTime startWork = dpkrStart.SelectedDate.Value;
+                if (startWork.Year - dob.Year < 18)
+                {
+                    boxStart.BorderBrush = Brushes.Red;
+                    MessageBox.Show("Không thể thêm khách hàng đi làm lúc nhỏ hơn 18 tuổi", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                else
+                {
+                    boxStart.BorderBrush = dark;
+                }
             }
+
 
             if (isEnd.IsChecked == true)
             {
@@ -181,6 +204,11 @@ namespace GUI
             emp.StartDate = dpkrStart.SelectedDate.Value;
             emp.RoleID = (int)comboBoxRole.SelectedValue;
             emp.Username = txtUsername.Text;
+            if (be.getEmployeeByUsername(txtUsername.Text) != null)
+            {
+                MessageBox.Show("Username đã tồn tại không thể thêm");
+                return;
+            }
             emp.Password = txtPass.Password;
             if (MessageBox.Show("Bạn có chắc chắn muốn thêm nhân viên này không?", "Stop", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
@@ -277,7 +305,17 @@ namespace GUI
             }
             else
             {
-                boxDOB.BorderBrush = dark;
+                DateTime dob = dpkrDOB.SelectedDate.Value;
+                if (DateTime.Now.Year - dob.Year < 18)
+                {
+                    boxDOB.BorderBrush = Brushes.Red;
+                    MessageBox.Show("Nhân viên nhỏ hơn 18 tuổi không thể thêm");
+                    return;
+                }
+                else
+                {
+                    boxDOB.BorderBrush = dark;
+                }
             }
 
             if (dpkrStart.SelectedDate == null)
@@ -286,9 +324,21 @@ namespace GUI
                 MessageBox.Show("Vui lòng nhập ngày bắt đầu làm");
                 return;
             }
+
             else
             {
-                boxStart.BorderBrush = dark;
+                DateTime dob = dpkrDOB.SelectedDate.Value;
+                DateTime startWork = dpkrStart.SelectedDate.Value;
+                if (startWork.Year - dob.Year < 18)
+                {
+                    boxStart.BorderBrush = Brushes.Red;
+                    MessageBox.Show("Không thể thêm khách hàng đi làm lúc nhỏ hơn 18 tuổi", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                else
+                {
+                    boxStart.BorderBrush = dark;
+                }
             }
 
             if (comboBoxRole.SelectedValue == null)
@@ -339,6 +389,12 @@ namespace GUI
             emp.Email = txtEmail.Text;
             emp.RoleID = (int)comboBoxRole.SelectedValue;
             emp.Username = txtUsername.Text;
+            Employee temp = be.getEmployeeByUsername(txtUsername.Text);
+            if (temp != null && temp.EmployeeID != emp.EmployeeID)
+            {
+                MessageBox.Show("Username đã tồn tại không thể sửa");
+                return;
+            }
             emp.Password = txtPass.Password;
             emp.StartDate = dpkrStart.SelectedDate.Value;
             emp.IsEmployed = isEnd.IsChecked == true ? false : true;

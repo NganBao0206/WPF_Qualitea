@@ -286,9 +286,14 @@ namespace GUI
             if (MessageBox.Show("Bạn có chắc chắn đã thanh toán không?", "Stop", MessageBoxButton.YesNo, MessageBoxImage.Stop) == MessageBoxResult.Yes)
             {
                 int? userId = null;
+                int score = 0;
                 if (customer != null)
+                {
                     userId = customer.CustomerID;
-                if (busOrder.addNewEmpOrder(total/1000, discountTotal/1000, od.ToList(), userId, ScoreApply ,CurrentLogin.Instance.LoginID))
+                    if (isApply)
+                        score = ScoreApply;
+                }
+                if (busOrder.addNewEmpOrder(total/1000, discountTotal/1000, od.ToList(), userId, score ,CurrentLogin.Instance.LoginID))
                 {
                     od.Clear();
                     Bill.ItemsSource = od;
