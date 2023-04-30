@@ -58,7 +58,7 @@
                         <StackPanel>
                             <TextBlock Text="THE HARDER YOU WORK, THE LUCKIER YOU GET." Style="{StaticResource regularFont}" FontSize="35" Width="245" TextWrapping="Wrap" HorizontalAlignment="Left"></TextBlock>
                         </StackPanel>
-                        <Image Source="/asset/photo/—Pngtree—barista coffee making coffee brewing_6690311.png" Margin="33,-60,-151.2,-117.2" RenderTransformOrigin="0.5,0.5">
+                        <Image Source="/asset/photo/coffeeMaker.png" Margin="33,-60,-151.2,-117.2" RenderTransformOrigin="0.5,0.5">
                             <Image.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform />

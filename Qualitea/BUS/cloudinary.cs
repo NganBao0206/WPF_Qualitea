@@ -13,7 +13,11 @@ namespace BUS
         private static Cloudinary clou;
         public cloudinary()
         {
-            clou = new Cloudinary(new Account("dgezbb4r3", "782974893792114", "75oReakrZcZyEzRu0-nQXCuP0kU"));
+            string cloudName = Environment.GetEnvironmentVariable("CLOUDINARY_CLOUD_NAME");
+            string apiKey = Environment.GetEnvironmentVariable("CLOUDINARY_API_KEY");
+            string apiSecret = Environment.GetEnvironmentVariable("CLOUDINARY_API_SECRET");
+
+            clou = new Cloudinary(new Account(cloudName, apiKey, apiSecret));
         }
 
         public string addImageForce(string imageSource)

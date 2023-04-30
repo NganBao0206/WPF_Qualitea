@@ -27,8 +27,8 @@ namespace DAO
         public  List<Product> getProducts(string keyword, int? cateID, bool? isActive, double? minPrice, double? maxPrice)
         {
             var products = getProducts();
-            if (keyword != null)
-                products = products.Where(p => p.Name.ToUpper().Contains(keyword.ToUpper())).ToList();
+            if (keyword != null && !String.IsNullOrWhiteSpace(keyword))
+                products = products.Where(p => p.Name.ToUpper().Contains(keyword.ToUpper().Trim())).ToList();
             if (cateID != null && cateID != -1)
                 products = products.Where(p => p.CategoryID == cateID).ToList();
             if (isActive != null)
