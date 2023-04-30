@@ -1,0 +1,72 @@
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\BUS.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\BUS.pdb
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\DAO.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\DTO.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\EntityFramework.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\DAO.pdb
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\DAO.dll.config
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\DTO.pdb
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\EntityFramework.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\obj\Debug\BUS.csproj.CopyComplete
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\obj\Debug\BUS.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\obj\Debug\BUS.pdb
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\BUS.dll.config
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\EntityFramework.SqlServer.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\DTO.dll.config
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\EntityFramework.SqlServer.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\CloudinaryDotNet.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\Newtonsoft.Json.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\System.Text.Encodings.Web.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\CloudinaryDotNet.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\Newtonsoft.Json.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\BUS\bin\Debug\System.Text.Encodings.Web.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\BUS.dll.config
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\BUS.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\BUS.pdb
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\CloudinaryDotNet.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\DAO.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\DTO.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\EntityFramework.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\EntityFramework.SqlServer.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\Newtonsoft.Json.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\System.Text.Encodings.Web.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\DAO.pdb
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\DAO.dll.config
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\DTO.pdb
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\DTO.dll.config
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\CloudinaryDotNet.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\EntityFramework.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\EntityFramework.SqlServer.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\Newtonsoft.Json.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\bin\Debug\System.Text.Encodings.Web.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\obj\Debug\BUS.csproj.CopyComplete
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\obj\Debug\BUS.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\BUS\obj\Debug\BUS.pdb
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\BUS.dll.config
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\BUS.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\BUS.pdb
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\CloudinaryDotNet.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\DAO.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\DTO.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\EntityFramework.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\DAO.pdb
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\DAO.dll.config
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\DTO.pdb
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\DTO.dll.config
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\CloudinaryDotNet.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\EntityFramework.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\obj\Debug\BUS.csproj.CopyComplete
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\obj\Debug\BUS.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\BUS\obj\Debug\BUS.pdb

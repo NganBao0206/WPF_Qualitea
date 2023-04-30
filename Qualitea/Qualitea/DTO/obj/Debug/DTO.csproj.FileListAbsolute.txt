@@ -1,0 +1,35 @@
+D:\Personal Folder\OneDrive\Documents\Qualitea\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\Personal Folder\OneDrive\Documents\Qualitea\DTO\bin\Debug\DTO.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\DTO\bin\Debug\DTO.pdb
+D:\Personal Folder\OneDrive\Documents\Qualitea\DTO\obj\Debug\DTO.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\DTO\obj\Debug\DTO.pdb
+D:\Personal Folder\OneDrive\Documents\Qualitea\DTO\bin\Debug\DTO.dll.config
+D:\Personal Folder\OneDrive\Documents\Qualitea\DTO\bin\Debug\EntityFramework.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\DTO\bin\Debug\EntityFramework.SqlServer.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\DTO\bin\Debug\EntityFramework.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\DTO\bin\Debug\EntityFramework.SqlServer.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\DTO\obj\Debug\DTO.csproj.CopyComplete
+D:\Personal Folder\Desktop\adminqt\Qualitea\DTO\bin\Debug\DTO.dll.config
+D:\Personal Folder\Desktop\adminqt\Qualitea\DTO\bin\Debug\DTO.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\DTO\bin\Debug\DTO.pdb
+D:\Personal Folder\Desktop\adminqt\Qualitea\DTO\bin\Debug\EntityFramework.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\DTO\bin\Debug\EntityFramework.SqlServer.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\DTO\bin\Debug\EntityFramework.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\DTO\bin\Debug\EntityFramework.SqlServer.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+D:\Personal Folder\Desktop\adminqt\Qualitea\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\Personal Folder\Desktop\adminqt\Qualitea\DTO\obj\Debug\DTO.csproj.CopyComplete
+D:\Personal Folder\Desktop\adminqt\Qualitea\DTO\obj\Debug\DTO.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\DTO\obj\Debug\DTO.pdb
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DTO\bin\Debug\DTO.dll.config
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DTO\bin\Debug\DTO.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DTO\bin\Debug\DTO.pdb
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DTO\bin\Debug\EntityFramework.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DTO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DTO\bin\Debug\EntityFramework.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DTO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DTO\obj\Debug\DTO.csproj.CopyComplete
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DTO\obj\Debug\DTO.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\DTO\obj\Debug\DTO.pdb

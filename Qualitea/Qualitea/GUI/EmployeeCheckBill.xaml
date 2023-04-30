@@ -1,0 +1,322 @@
+﻿<Window x:Class="GUI.EmployeeCheckBill" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:GUI" Icon="/asset/logo/greenline.ico" mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" Title="Qualitea" WindowState="Maximized" Height="714.144" Width="1314.423">
+
+
+    <Border Background="#ffffff">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="3" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="70" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border Grid.Row="3" Padding="0">
+                <StackPanel HorizontalAlignment="Left">
+                    <Border Width="45" Height="160" x:Name="tabOffline" Cursor="Hand" Background="#FF53825E" CornerRadius="0 20 20 0" HorizontalAlignment="Left" MouseLeftButtonDown="tabOffline_MouseLeftButtonDown">
+                        <TextBlock Text="Đơn tại chổ" Style="{StaticResource regularFont}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="90" />
+                            </TextBlock.LayoutTransform>
+                        </TextBlock >
+                    </Border>
+                    <Border Width="40" Height="150" x:Name="tabOnline" Cursor="Hand" Background="#acacac" CornerRadius="0 20 20 0" HorizontalAlignment="Left" MouseLeftButtonDown="tabOnline_MouseLeftButtonDown">
+                        <TextBlock Text="Đơn giao" Style="{StaticResource regularFont}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="90" />
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Border>
+                </StackPanel>
+            </Border>
+            <Border Background="#555">
+                <Button x:Name="BtnBack" Width="32" Height="32" BorderThickness="0" Click="BtnBack_Click" Style="{DynamicResource ButtonStyle1}" Cursor="Hand" Margin="20 0">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/asset/icons/back-white.png" />
+                    </Button.Background>
+                </Button>
+            </Border>
+            <Border Grid.Column="1" Grid.ColumnSpan="3" Background="#555">
+                <TextBlock Text="Xem lại hóa đơn đã thanh toán" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource myFont}" FontSize="30" Foreground="#FFF"></TextBlock>
+            </Border>
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Border>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Height="50" Width="10" Fill="#555" />
+                        <TextBlock Style="{StaticResource myFont}" Text="Hóa đơn của bạn" Foreground="#555" FontSize="25" VerticalAlignment="Center" Margin="20 0"></TextBlock>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="1" Style="{StaticResource containTextBox}" CornerRadius="0" Margin="0 10" Height="50" Width="300">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="Ngày lập" Style="{StaticResource darkFont}" VerticalAlignment="Center" Margin="10 0 10 0" />
+                        <Rectangle Grid.Column="1" Fill="#555" Width="5" Height="30" />
+                        <DatePicker Grid.Column="2" x:Name="searchOrderDate" Style="{DynamicResource myDatePicker}" CalendarStyle="{DynamicResource myCalendarBlack}" VerticalAlignment="Center" Margin="5" SelectedDateChanged="searchOrderDate_SelectedDateChanged" />
+                    </Grid>
+                </Border>
+
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <RadioButton x:Name="rdoFinish" GroupName="Status" Content="Hoàn thành" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="rdoFinish_Checked" />
+                <RadioButton x:Name="rdoNotFinish" Grid.Column="1" IsChecked="True" GroupName="Status" Content="Chưa hoàn thành" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="rdoNotFinish_Checked" />
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="3">
+                <Border>
+                    <ScrollViewer>
+                        <ItemsControl x:Name="listOrder" x:FieldModifier="public">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Grid.Row="3" Grid.Column="1" Background="Beige" Margin="20" Height="500" VerticalAlignment="Top" BorderBrush="#555" BorderThickness="1">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                                <RowDefinition Height="50" />
+                                            </Grid.RowDefinitions>
+                                            <Border Margin="20 20 0 0">
+                                                <StackPanel Orientation="Vertical">
+                                                    <TextBlock Text="Mã hóa đơn: " Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Text="Thành tiền: " Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Style="{StaticResource myFont}" FontSize="14" Text="Thời gian đặt: " />
+                                                    <TextBlock x:Name="txtCus" Text="Tên nguời nhận: " Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock x:Name="txtPhone" Text="SDT: " Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock x:Name="txtAddress" Text="Địa chỉ: " Style="{StaticResource myFont}" FontSize="14" />
+                                                </StackPanel>
+                                            </Border>
+                                            <Border Grid.Column="1" Margin="0 20 20 0" HorizontalAlignment="Right">
+                                                <StackPanel Orientation="Vertical">
+                                                    <TextBlock Text="{Binding Path=OrderHeaderID}" Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Text="{Binding Path=Cash, StringFormat=N0}" Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Style="{StaticResource myFont}" FontSize="14" Text="{Binding Path=OrderDate, StringFormat={}{0:hh\\hmm d/M}}" />
+                                                    <TextBlock Text="{Binding Path=ShipInfo.ReceiverName}" Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Text="{Binding Path=ShipInfo.ReceiverPhone}" Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Text="{Binding Path=ShipInfo.Address}" Style="{StaticResource myFont}" FontSize="14" />
+                                                </StackPanel>
+                                            </Border>
+                                            <Border Grid.Column="2" Grid.RowSpan="2" Background="AliceBlue" Margin="0 15 15 0" CornerRadius="10" BorderThickness="1" BorderBrush="#555" Height="70" VerticalAlignment="Top">
+                                                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                                    <TextBlock Text="Nhân viên đặt" Style="{StaticResource darkFont}" FontSize="14" HorizontalAlignment="Center" Margin="0 2" />
+                                                    <TextBlock Text="{Binding Path=EmployeeName}" Style="{StaticResource darkFont}" FontSize="14" HorizontalAlignment="Center" Margin="0 2" />
+                                                </StackPanel>
+                                            </Border>
+                                            <Border Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="10">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="15" />
+                                                        <RowDefinition />
+                                                    </Grid.RowDefinitions>
+                                                    <TextBlock Text="Danh sách các món" Style="{StaticResource darkFont}" HorizontalAlignment="Center" FontSize="15" Margin="-10"></TextBlock>
+                                                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Disabled" Margin="10 5 10 10 ">
+                                                        <Border BorderBrush="#555" BorderThickness="1">
+                                                            <Grid ShowGridLines="True">
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition />
+                                                                    <ColumnDefinition Width="40" />
+                                                                    <ColumnDefinition Width="40" />
+                                                                </Grid.ColumnDefinitions>
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="20" />
+                                                                    <RowDefinition />
+                                                                </Grid.RowDefinitions>
+                                                                <TextBlock Style="{StaticResource myFont}" FontSize="12" Text="Tên sản phẩm" HorizontalAlignment="Center" />
+                                                                <TextBlock Grid.Column="1" Style="{StaticResource myFont}" FontSize="12" Text="Size" HorizontalAlignment="Center" />
+                                                                <TextBlock Grid.Column="2" Style="{StaticResource myFont}" FontSize="12" Text="SL" HorizontalAlignment="Center" />
+                                                                <ScrollViewer Grid.Row="1" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Hidden">
+                                                                    <ItemsControl ItemsSource="{Binding Path=OrderDetails}" Padding="0 0 0 0">
+                                                                        <ItemsControl.ItemTemplate>
+                                                                            <DataTemplate>
+                                                                                <Grid Margin="0 3">
+                                                                                    <Grid.ColumnDefinitions>
+                                                                                        <ColumnDefinition />
+                                                                                        <ColumnDefinition Width="40" />
+                                                                                        <ColumnDefinition Width="40" />
+                                                                                    </Grid.ColumnDefinitions>
+                                                                                    <TextBlock HorizontalAlignment="Center" Text="{Binding Path=ProductOption.Product.Name}" Style="{StaticResource darkFont}" FontSize="12" />
+                                                                                    <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Path=ProductOption.Size.Name }" Style="{StaticResource darkFont}" FontSize="12" />
+                                                                                    <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding Path=Quantity }" Style="{StaticResource darkFont}" FontSize="12" />
+                                                                                </Grid>
+                                                                            </DataTemplate>
+                                                                        </ItemsControl.ItemTemplate>
+                                                                    </ItemsControl>
+                                                                </ScrollViewer>
+                                                            </Grid>
+                                                        </Border>
+                                                    </ScrollViewer>
+                                                </Grid>
+                                            </Border>
+                                            <TextBlock Grid.Row="3" Text="Trạng thái hóa đơn: " Margin="20 0" VerticalAlignment="Center" Style="{StaticResource darkFont}" FontSize="12" />
+                                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding StatusString}" VerticalAlignment="Center" Style="{StaticResource darkFont}" FontSize="12" />
+                                            <Border Grid.Column="2" Grid.Row="3">
+                                                <Button Style="{StaticResource GreenButton}" Height="35" Cursor="Hand" x:Name="BtnComplete" Click="BtnComplete_Click" Margin="0 0 0 10" Width="150">
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="Hoàn thành" FontSize="12" Foreground="#fff" Margin="5 0" VerticalAlignment="Center" />
+                                                        <Image Source="asset/icons/check.png" Width="15" />
+                                                    </StackPanel>
+                                                </Button>
+                                            </Border>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+
+                        </ItemsControl>
+
+                    </ScrollViewer>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Column="3" Grid.Row="3">
+                <Border>
+                    <ScrollViewer>
+                        <ItemsControl x:Name="listOrderByCustomer" x:FieldModifier="public">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Grid.Row="3" Grid.Column="3" Background="Beige" Margin="20" Height="500" VerticalAlignment="Top" BorderBrush="#555">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                                <RowDefinition Height="50" />
+                                            </Grid.RowDefinitions>
+                                            <Border Margin="20 20 0 0">
+                                                <StackPanel Orientation="Vertical">
+                                                    <TextBlock Text="Mã hóa đơn: " Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Text="Thành tiền: " Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Style="{StaticResource myFont}" FontSize="14" Text="Thời gian đặt: " />
+                                                    <TextBlock Text="Tên người đặt: " Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Text="SDT: " Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Text="Địa chỉ: " Style="{StaticResource myFont}" FontSize="14" />
+                                                </StackPanel>
+                                            </Border>
+                                            <Border Grid.Column="1" Margin="0 20 20 0" HorizontalAlignment="Right">
+                                                <StackPanel Orientation="Vertical">
+                                                    <TextBlock Text="{Binding Path=OrderHeaderID}" Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Text="{Binding Path=Cash, StringFormat=N0}" Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Style="{StaticResource myFont}" FontSize="12" Text="{Binding Path=OrderDate, StringFormat={}{0:hh\\hmm d/M}}" />
+                                                    <TextBlock Text="{Binding Path=ShipInfo.ReceiverName}" Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Text="{Binding Path=ShipInfo.ReceiverPhone}" Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Text="{Binding Path=ShipInfo.Address}" Style="{StaticResource myFont}" FontSize="14" />
+
+                                                </StackPanel>
+                                            </Border>
+
+                                            <Button Grid.Column="2" VerticalAlignment="Top" Style="{StaticResource GreenButton}" Height="50" Cursor="Hand" x:Name="btnConfirmOrder" Click="confirmOrder_Click">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="Nhận đơn" FontSize="14" Foreground="#fff" Margin="5 0" VerticalAlignment="Center" />
+                                                    <Image Source="asset/icons/check.png" Width="20" />
+                                                </StackPanel>
+                                            </Button>
+
+                                            <Border Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="10">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="15" />
+                                                        <RowDefinition />
+                                                    </Grid.RowDefinitions>
+                                                    <TextBlock Text="Danh sách các món" Style="{StaticResource darkFont}" HorizontalAlignment="Center" FontSize="15" Margin="-10"></TextBlock>
+                                                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Disabled" Margin="10 5 10 10 ">
+                                                        <Border BorderBrush="#555" BorderThickness="1">
+                                                            <Grid ShowGridLines="True">
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition />
+                                                                    <ColumnDefinition Width="40" />
+                                                                    <ColumnDefinition Width="40" />
+                                                                </Grid.ColumnDefinitions>
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="20" />
+                                                                    <RowDefinition />
+                                                                </Grid.RowDefinitions>
+                                                                <TextBlock Style="{StaticResource myFont}" FontSize="12" Text="Tên sản phẩm" HorizontalAlignment="Center" />
+                                                                <TextBlock Grid.Column="1" Style="{StaticResource myFont}" FontSize="12" Text="Size" HorizontalAlignment="Center" />
+                                                                <TextBlock Grid.Column="2" Style="{StaticResource myFont}" FontSize="12" Text="SL" HorizontalAlignment="Center" />
+                                                                <ScrollViewer Grid.Row="1" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Hidden">
+                                                                    <ItemsControl ItemsSource="{Binding Path=OrderDetails}" Padding="0 0 0 0">
+                                                                        <ItemsControl.ItemTemplate>
+                                                                            <DataTemplate>
+                                                                                <Grid>
+                                                                                    <Grid.ColumnDefinitions>
+                                                                                        <ColumnDefinition />
+                                                                                        <ColumnDefinition Width="40" />
+                                                                                        <ColumnDefinition Width="40" />
+                                                                                    </Grid.ColumnDefinitions>
+                                                                                    <TextBlock HorizontalAlignment="Center" Text="{Binding Path=ProductOption.Product.Name}" Style="{StaticResource darkFont}" FontSize="12" />
+                                                                                    <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Path=ProductOption.Size }" Style="{StaticResource darkFont}" FontSize="12" />
+                                                                                    <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding Path=Quantity }" Style="{StaticResource darkFont}" FontSize="12" />
+                                                                                </Grid>
+                                                                            </DataTemplate>
+                                                                        </ItemsControl.ItemTemplate>
+                                                                    </ItemsControl>
+                                                                </ScrollViewer>
+                                                            </Grid>
+                                                        </Border>
+                                                    </ScrollViewer>
+                                                </Grid>
+                                            </Border>
+                                            <TextBlock Grid.Row="3" Text="Trạng thái hóa đơn: " VerticalAlignment="Center" Style="{StaticResource darkFont}" FontSize="14" />
+                                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding StatusString}" VerticalAlignment="Center" Style="{StaticResource darkFont}" FontSize="14" />
+
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+
+                        </ItemsControl>
+
+                    </ScrollViewer>
+                </Border>
+            </Grid>
+            <Border Background="#555" Grid.Column="4" x:Name="CloseAnnounce">
+                <Button x:FieldModifier="public" x:Name="btnBell" Width="32" Height="32" BorderThickness="0" Style="{DynamicResource ButtonStyle1}" Cursor="Hand" Margin="20 0" Click="btnBell_Click">
+                    <Button.Background>
+                        <ImageBrush x:Name="imgNotice" ImageSource="/asset/icons/bell.png" />
+                    </Button.Background>
+                </Button>
+            </Border>
+            <Border Background="#555" Grid.Column="4" Visibility="Collapsed" x:Name="ShowAnnounce">
+                <Button x:FieldModifier="public" x:Name="btnNotice" Width="32" Height="32" BorderThickness="0" Style="{DynamicResource ButtonStyle1}" Cursor="Hand" Margin="20 0" Click="btnNotice_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/asset/icons/announce-bell.png" />
+                    </Button.Background>
+                </Button>
+            </Border>
+
+            <Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Background="#555" Margin="1 0" />
+            <Border Grid.Column="3" Grid.Row="1">
+                <StackPanel Margin="30 0 0 0" Orientation="Horizontal">
+                    <Rectangle Height="50" Width="10" Fill="#555" />
+                    <TextBlock Style="{StaticResource myFont}" Text="Đơn khách đã đặt" Foreground="#555" FontSize="25" VerticalAlignment="Center" Margin="20 0"></TextBlock>
+                </StackPanel>
+            </Border>
+            <Border x:Name="ShowCusOrder" Background="#FFF" Panel.ZIndex="100" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="2" />
+        </Grid>
+    </Border>
+</Window>

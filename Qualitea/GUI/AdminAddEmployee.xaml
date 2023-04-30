@@ -119,7 +119,7 @@
                                     <TextBox x:Name="txtName" Style="{StaticResource myTextBox}" />
                                 </Border>
                             </StackPanel>
-                            <StackPanel Visibility="Hidden" x:Name="groupID">
+                            <StackPanel Margin="0 0 10 0" Visibility="Hidden" x:Name="groupID">
                                 <Label Content="ID" Style="{StaticResource myFont}" />
                                 <Border x:Name="boxID" Style="{StaticResource containTextBox}" Padding="10" Margin="0">
                                     <TextBox x:Name="txtID" Style="{StaticResource myTextBox}" IsReadOnly="True"/>

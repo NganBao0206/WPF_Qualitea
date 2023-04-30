@@ -48,6 +48,7 @@ namespace GUI
                 groupID.Visibility = Visibility.Visible;
                 Grid.SetColumnSpan(groupName, 1);
                 Grid.SetColumn(groupName, 1);
+                groupName.Margin = new Thickness(10, 0, 0, 0);
                 editEmployee.Visibility = Visibility.Visible;
                 txtName.Text = employee.Name;
                 dpkrDOB.SelectedDate = employee.DOB;

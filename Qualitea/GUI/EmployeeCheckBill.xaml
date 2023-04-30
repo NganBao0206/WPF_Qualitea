@@ -96,7 +96,7 @@
                                                 <RowDefinition />
                                                 <RowDefinition Height="50" />
                                             </Grid.RowDefinitions>
-                                            <Border Margin="20 20 0 0">
+                                            <!--<Border Margin="20 20 0 0">
                                                 <StackPanel Orientation="Vertical">
                                                     <TextBlock Text="Mã hóa đơn: " Style="{StaticResource myFont}" FontSize="14" />
                                                     <TextBlock Text="Thành tiền: " Style="{StaticResource myFont}" FontSize="14" />
@@ -105,15 +105,15 @@
                                                     <TextBlock x:Name="txtPhone" Text="SDT: " Style="{StaticResource myFont}" FontSize="14" />
                                                     <TextBlock x:Name="txtAddress" Text="Địa chỉ: " Style="{StaticResource myFont}" FontSize="14" />
                                                 </StackPanel>
-                                            </Border>
-                                            <Border Grid.Column="1" Margin="0 20 20 0" HorizontalAlignment="Right">
+                                            </Border>-->
+                                            <Border Grid.Column="0" Margin="15 15 0 0" HorizontalAlignment="Left">
                                                 <StackPanel Orientation="Vertical">
-                                                    <TextBlock Text="{Binding Path=OrderHeaderID}" Style="{StaticResource myFont}" FontSize="14" />
-                                                    <TextBlock Text="{Binding Path=Cash, StringFormat=N0}" Style="{StaticResource myFont}" FontSize="14" />
-                                                    <TextBlock Style="{StaticResource myFont}" FontSize="14" Text="{Binding Path=OrderDate, StringFormat={}{0:hh\\hmm d/M}}" />
-                                                    <TextBlock Text="{Binding Path=ShipInfo.ReceiverName}" Style="{StaticResource myFont}" FontSize="14" />
-                                                    <TextBlock Text="{Binding Path=ShipInfo.ReceiverPhone}" Style="{StaticResource myFont}" FontSize="14" />
-                                                    <TextBlock Text="{Binding Path=ShipInfo.Address}" Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Text="{Binding Path=OrderHeaderID, StringFormat='Mã hóa đơn: {0}'}" Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Text="{Binding Path=Cash, StringFormat='Thành tiền: {0:N0}'}" Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Style="{StaticResource myFont}" FontSize="14" Text="{Binding Path=OrderDate, StringFormat='Thời gian đặt: {0:hh:mm:ss d/M}'}" />
+                                                    <TextBlock Text="{Binding Path=ShipInfo.ReceiverName, StringFormat='Tên người nhận: {0}'}" Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Text="{Binding Path=ShipInfo.ReceiverPhone, StringFormat='SĐT: {0}'}" Style="{StaticResource myFont}" FontSize="14" />
+                                                    <TextBlock Text="{Binding Path=ShipInfo.Address, StringFormat='Địa chỉ: {0}'}" Style="{StaticResource myFont}" FontSize="14" />
                                                 </StackPanel>
                                             </Border>
                                             <Border Grid.Column="2" Grid.RowSpan="2" Background="AliceBlue" Margin="0 15 15 0" CornerRadius="10" BorderThickness="1" BorderBrush="#555" Height="70" VerticalAlignment="Top">
@@ -155,7 +155,7 @@
                                                                                         <ColumnDefinition Width="40" />
                                                                                     </Grid.ColumnDefinitions>
                                                                                     <TextBlock HorizontalAlignment="Center" Text="{Binding Path=ProductOption.Product.Name}" Style="{StaticResource darkFont}" FontSize="12" />
-                                                                                    <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Path=ProductOption.Size.Name }" Style="{StaticResource darkFont}" FontSize="12" />
+                                                                                    <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Path=ProductOption.Size }" Style="{StaticResource darkFont}" FontSize="12" />
                                                                                     <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{Binding Path=Quantity }" Style="{StaticResource darkFont}" FontSize="12" />
                                                                                 </Grid>
                                                                             </DataTemplate>

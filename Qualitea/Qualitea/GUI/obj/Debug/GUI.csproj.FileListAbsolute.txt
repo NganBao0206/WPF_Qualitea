@@ -1,0 +1,275 @@
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\GUI.csproj.AssemblyReference.cache
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\EmployeeResources\MyButton.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\EmployeeResources\Style.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\myControlsCustom\ComboBox.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\myControlsCustom\controlsResource.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\myControlsCustom\DatePicker.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\myControlsCustom\DatePickerNew.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\myControlsCustom\listView.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\myControlsCustom\RadioButton.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\myControlsCustom\Scroll.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\Login.g.cs
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\MainWindow.g.cs
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\App.g.cs
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\GUI_MarkupCompile.cache
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\GUI_MarkupCompile.lref
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\GUI.exe.config
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\GUI.exe
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\GUI.pdb
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\BUS.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\DTO.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\DAO.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\EntityFramework.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\BUS.pdb
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\DTO.pdb
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\DAO.pdb
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\DAO.dll.config
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\EntityFramework.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\Register.g.cs
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\App.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\Login.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\MainWindow.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\Register.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\GUI.g.resources
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\GUI.Properties.Resources.resources
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\GUI.csproj.GenerateResource.cache
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\GUI.csproj.CopyComplete
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\GUI.exe
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\GUI.pdb
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\EntityFramework.SqlServer.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\BUS.dll.config
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\DTO.dll.config
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\EntityFramework.SqlServer.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\Admin.g.cs
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\AdminAddCategory.g.cs
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\AdminEditCategory.g.cs
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\Admin.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\AdminAddCategory.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\AdminEditCategory.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\CloudinaryDotNet.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\Newtonsoft.Json.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\System.Text.Encodings.Web.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\CloudinaryDotNet.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\Newtonsoft.Json.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\System.Text.Encodings.Web.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\AdminAddProduct.g.cs
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\AdminAddProduct.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\AdminProductDetail.g.cs
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\AdminProductDetail.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\AdminAddEmployee.g.cs
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\AdminAddEmployee.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\Customer.g.cs
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\Customer.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\LiveCharts.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\LiveCharts.Wpf.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\LiveCharts.pdb
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\LiveCharts.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\LiveCharts.Wpf.pdb
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\LiveCharts.Wpf.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\EmployeeHome.g.cs
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\EmployeeHome.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\EmployeeOrder.g.cs
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\EmployeeOrder.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\EmployeeCheckBill.g.cs
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\obj\Debug\EmployeeCheckBill.baml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\BitMiracle.LibTiff.NET.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\SixLabors.ImageSharp.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\System.Buffers.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\System.Memory.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\System.Numerics.Vectors.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\System.Text.Encoding.CodePages.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\BitMiracle.LibTiff.NET.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\SixLabors.ImageSharp.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\System.Buffers.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\System.Memory.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\System.Numerics.Vectors.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\System.Text.Encoding.CodePages.xml
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\QRCoder.dll
+D:\Personal Folder\OneDrive\Documents\Qualitea\GUI\bin\Debug\QRCoder.Xaml.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\GUI.exe.config
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\GUI.exe
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\GUI.pdb
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\BitMiracle.LibTiff.NET.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\BUS.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\DTO.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\EntityFramework.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\EntityFramework.SqlServer.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\LiveCharts.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\LiveCharts.Wpf.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\QRCoder.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\QRCoder.Xaml.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\SixLabors.ImageSharp.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\System.Buffers.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\System.Memory.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\System.Numerics.Vectors.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\System.Text.Encoding.CodePages.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\DAO.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\CloudinaryDotNet.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\Newtonsoft.Json.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\System.Text.Encodings.Web.dll
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\BUS.pdb
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\BUS.dll.config
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\DTO.pdb
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\DTO.dll.config
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\BitMiracle.LibTiff.NET.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\EntityFramework.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\EntityFramework.SqlServer.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\LiveCharts.pdb
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\LiveCharts.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\LiveCharts.Wpf.pdb
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\LiveCharts.Wpf.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\SixLabors.ImageSharp.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\System.Buffers.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\System.Memory.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\System.Numerics.Vectors.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\System.Text.Encoding.CodePages.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\DAO.pdb
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\DAO.dll.config
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\CloudinaryDotNet.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\Newtonsoft.Json.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\bin\Debug\System.Text.Encodings.Web.xml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\GUI.csproj.AssemblyReference.cache
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\EmployeeResources\MyButton.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\EmployeeResources\Style.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\myControlsCustom\ComboBox.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\myControlsCustom\controlsResource.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\myControlsCustom\DatePicker.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\myControlsCustom\DatePickerNew.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\myControlsCustom\listView.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\myControlsCustom\RadioButton.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\myControlsCustom\Scroll.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\Admin.g.cs
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\AdminAddCategory.g.cs
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\AdminAddEmployee.g.cs
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\AdminAddProduct.g.cs
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\AdminEditCategory.g.cs
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\AdminProductDetail.g.cs
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\Customer.g.cs
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\EmployeeCheckBill.g.cs
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\EmployeeHome.g.cs
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\EmployeeOrder.g.cs
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\Login.g.cs
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\Register.g.cs
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\App.g.cs
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\GUI_MarkupCompile.cache
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\GUI_MarkupCompile.lref
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\App.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\Admin.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\AdminAddCategory.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\AdminAddEmployee.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\AdminAddProduct.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\AdminEditCategory.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\AdminProductDetail.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\Customer.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\EmployeeCheckBill.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\EmployeeHome.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\EmployeeOrder.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\Login.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\Register.baml
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\GUI.g.resources
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\GUI.Properties.Resources.resources
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\GUI.csproj.GenerateResource.cache
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\GUI.csproj.CopyComplete
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\GUI.exe
+D:\Personal Folder\Desktop\adminqt\Qualitea\GUI\obj\Debug\GUI.pdb
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\GUI.exe.config
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\GUI.exe
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\GUI.pdb
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\BitMiracle.LibTiff.NET.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\BUS.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\DTO.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\EntityFramework.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\LiveCharts.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\QRCoder.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\QRCoder.Xaml.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\SixLabors.ImageSharp.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\System.Buffers.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\System.Memory.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\System.Text.Encoding.CodePages.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\DAO.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\CloudinaryDotNet.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\BUS.pdb
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\BUS.dll.config
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\DTO.pdb
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\DTO.dll.config
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\BitMiracle.LibTiff.NET.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\EntityFramework.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\LiveCharts.pdb
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\LiveCharts.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\SixLabors.ImageSharp.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\System.Buffers.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\System.Memory.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\System.Text.Encoding.CodePages.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\DAO.pdb
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\DAO.dll.config
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\CloudinaryDotNet.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\GUI.csproj.AssemblyReference.cache
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\EmployeeResources\MyButton.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\EmployeeResources\Style.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\myControlsCustom\ComboBox.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\myControlsCustom\controlsResource.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\myControlsCustom\DatePicker.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\myControlsCustom\DatePickerNew.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\myControlsCustom\listView.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\myControlsCustom\RadioButton.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\myControlsCustom\Scroll.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\Admin.g.cs
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\AdminAddCategory.g.cs
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\AdminAddEmployee.g.cs
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\AdminAddProduct.g.cs
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\AdminEditCategory.g.cs
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\AdminProductDetail.g.cs
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\Customer.g.cs
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\EmployeeCheckBill.g.cs
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\EmployeeHome.g.cs
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\EmployeeOrder.g.cs
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\Login.g.cs
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\Register.g.cs
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\App.g.cs
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\GUI_MarkupCompile.cache
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\GUI_MarkupCompile.lref
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\App.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\Admin.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\AdminAddCategory.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\AdminAddEmployee.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\AdminAddProduct.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\AdminEditCategory.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\AdminProductDetail.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\Customer.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\EmployeeCheckBill.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\EmployeeHome.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\EmployeeOrder.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\Login.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\Register.baml
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\GUI.g.resources
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\GUI.Properties.Resources.resources
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\GUI.csproj.GenerateResource.cache
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\GUI.csproj.CopyComplete
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\GUI.exe
+C:\Users\Hi\Desktop\.Net\adminqt\Qualitea\GUI\obj\Debug\GUI.pdb
